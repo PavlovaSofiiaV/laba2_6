@@ -11,7 +11,8 @@ book::book(std::string new_title, std::string new_author): title {new_title}, au
 book::book(std::string new_title, std::string new_author, int new_year):  title {new_title}, author{new_author}, year {new_year}, pages {0} {}
 book::book(std::string new_title, std::string new_author, int new_year, int new_pages):title {new_title}, author{new_author}, year {new_year}, pages {new_pages} {}
 void book::aboutbook() {
-    std::cout << "Title: " << title << "\n"
+    std::cout <<"\n"<<"-----------------------"<<"\n"
+              << "Title: " << title << "\n"
               << "Author: " << author << "\n"
               << "Year: " << year << "\n"
               << "Pages: " << pages << std::endl;
