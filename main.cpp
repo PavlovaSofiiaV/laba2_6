@@ -1,9 +1,12 @@
 #include "book.h"
 #include "reader.h"
+
 #include <iostream>
+using namespace std;
 
 
 int main() {
+    cout<<"==========About books==========";
     book book1;
     book book2("The Inheritance Games");
     book book3("The Inheritance Games", "Jennifer Lynn Barnes");
@@ -16,6 +19,8 @@ int main() {
     book4.aboutbook();
     book5.aboutbook();
 
+    cout<<endl;
+    cout<<"\n"<<"==========About Reader==========";
     reader reader1;
     reader reader2("Pavlova Sofiia");
     reader reader3("Shishko Ruslan","Nebesnoi Sotni 4v");
@@ -29,7 +34,7 @@ int main() {
     reader5.aboutreader();
 
     cout<<endl;
-    cout<<"==========About Emploee============";
+    cout<<"\n"<<"==========About Emploee============";
 
 
     return 0;
