@@ -2,6 +2,8 @@
 #include "reader.h"
 
 #include <iostream>
+
+#include "employee.h"
 using namespace std;
 
 
@@ -35,6 +37,20 @@ int main() {
 
     cout<<endl;
     cout<<"\n"<<"==========About Emploee============";
+    employee employee1;
+    employee employee2("Pavlova Sofiia");
+    employee employee3("Shishko Ruslan",17000);
+    employee employee4("Rozhman Damir",16780, 16);
+    employee employee5(18900, 18);
+
+    employee1.about_employee();
+    employee2.about_employee();
+    employee3.about_employee();
+    employee4.about_employee();
+    employee5.about_employee();
+
+
+
 
 
     return 0;

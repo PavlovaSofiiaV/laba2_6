@@ -1,6 +1,6 @@
 #include <string>
 #include "employee.h"
-using namespace std;
+#include <iostream>
 
 employee::employee() {
     name="None";
@@ -26,6 +26,12 @@ employee::employee( int new_salary, int new_work_days) {
     name="None";
     work_days=new_work_days;
     salary=new_salary;
+}
+void employee::about_employee() {
+    std::cout <<"\n"<<"-----------------------"
+              << "Name: " << name << "\n"
+              << "Salary: " << salary << "\n"
+              << "Work days: " << work_days << std::endl;
 }
 
 
