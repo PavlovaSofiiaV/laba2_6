@@ -11,9 +11,9 @@ reader::reader(std::string new_name,std::string new_adrees):name {new_name}, adr
 reader::reader(std::string new_name,std::string new_adrees, int new_number):name {new_name}, adrees{new_adrees}, number {new_number}, book_count {0} {}
 reader::reader(std::string new_name,std::string new_adrees, int new_number, int new_book_count):name {new_name}, adrees{new_adrees}, number {new_number}, book_count {new_book_count} {}
 void reader::aboutreader() {
-    std::cout <<std::endl<<"Name: " << name << "\n"
+    std::cout <<"\n"<<"-----------------------"
+              << "Name: " << name << "\n"
               << "Adress: " << adrees << "\n"
               << "Phone number: " << number << "\n"
-              << "Amount of books: " << book_count
-              <<"\n"<<"-----------------------";
+              << "Amount of books: " << book_count << std::endl;
 }
