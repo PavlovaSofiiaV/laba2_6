@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(laba2_6 main.cpp
         book.h
-        book.cpp)
+        book.cpp
+        reader.h
+        reader.cpp)
