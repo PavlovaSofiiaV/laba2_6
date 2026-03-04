@@ -1,4 +1,5 @@
 #include "book.h"
+#include "reader.h"
 #include <iostream>
 
 
@@ -14,5 +15,20 @@ int main() {
     book3.aboutbook();
     book4.aboutbook();
     book5.aboutbook();
+
+    reader reader1;
+    reader reader2("Pavlova Sofiia");
+    reader reader3("Shishko Ruslan","Nebesnoi Sotni 4v");
+    reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145);
+    reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5);
+
+    reader1.aboutreader();
+    reader2.aboutreader();
+    reader3.aboutreader();
+    reader4.aboutreader();
+    reader5.aboutreader();
+
+    
+
     return 0;
 }
