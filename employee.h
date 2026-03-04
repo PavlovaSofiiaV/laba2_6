@@ -5,18 +5,18 @@
 #ifndef LABA2_6_EMPLOYEE_H
 #define LABA2_6_EMPLOYEE_H
 #include <string>
-using namespace std;
+
 class employee {
     private:
-    string name;
+    std::string name;
     int work_days;
     int salary;
     public:
     employee();
-    employee(string new_name);
-    employee(string new_name, int new_salary);
+    employee(std::string new_name);
+    employee(std::string new_name, int new_salary);
     employee(int new_salary, int new_work_days);
-    employee(string new_name, int new_salary, int new_work_days);
+    employee(std::string new_name, int new_salary, int new_work_days);
     void about_employee();
 
 };

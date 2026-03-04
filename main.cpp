@@ -22,7 +22,7 @@ int main() {
     book5.aboutbook();
 
     cout<<endl;
-    cout<<"\n"<<"==========About Reader==========";
+    cout<<"\n==========About Reader==========\n";
     reader reader1;
     reader reader2("Pavlova Sofiia");
     reader reader3("Shishko Ruslan","Nebesnoi Sotni 4v");
@@ -36,7 +36,7 @@ int main() {
     reader5.aboutreader();
 
     cout<<endl;
-    cout<<"\n"<<"==========About Emploee============";
+    cout<<"\n==========About Emploee============\n";
     employee employee1;
     employee employee2("Pavlova Sofiia");
     employee employee3("Shishko Ruslan",17000);

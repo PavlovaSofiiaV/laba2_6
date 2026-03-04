@@ -15,5 +15,5 @@ void book::aboutbook() {
               << "Author: " << author << "\n"
               << "Year: " << year << "\n"
               << "Pages: " << pages
-              <<"\n"<<"-----------------------";
+              <<"\n-----------------------";
 }
