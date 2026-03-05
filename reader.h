@@ -19,5 +19,6 @@ public:
     reader(std::string new_name, std::string new_adrees, int new_number);
     reader(std::string new_name, std::string new_adrees, int new_number, int book_count);
     void aboutreader();
+    ~reader();
 };
 #endif //LABA2_6_READER_H

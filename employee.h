@@ -18,6 +18,6 @@ class employee {
     employee(int new_salary, int new_work_days);
     employee(std::string new_name, int new_salary, int new_work_days);
     void about_employee();
-
+    ~employee();
 };
 #endif //LABA2_6_EMPLOYEE_H

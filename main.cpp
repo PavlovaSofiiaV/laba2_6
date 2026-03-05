@@ -48,10 +48,5 @@ int main() {
     employee3.about_employee();
     employee4.about_employee();
     employee5.about_employee();
-
-
-
-
-
     return 0;
 }

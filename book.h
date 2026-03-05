@@ -14,11 +14,11 @@ private:
     int pages;
 public:
     book();
-
     book(std::string new_title);
     book(std::string new_title, std::string new_author);
     book(std::string new_title, std::string new_author, int new_year);
     book(std::string new_title, std::string new_author, int new_year, int new_pages);
+    ~book();
     void aboutbook();
 };
 #endif //LABA2_6_BOOK_H
