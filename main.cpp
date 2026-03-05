@@ -38,11 +38,11 @@ int main() {
 
     cout<<endl;
     cout<<"\n==========About Emploee============\n";
-    employee employee1;
-    employee employee2("Pavlova Sofiia");
-    employee employee3("Shyshko Ruslana",1000000);
-    employee employee4("Rozhman Damir",16780,30);
-    employee employee5(18900, 18);
+    Employee employee1;
+    Employee employee2("Pavlova Sofiia");
+    Employee employee3("Shyshko Ruslana",1000000);
+    Employee employee4("Rozhman Damir",16780,30);
+    Employee employee5(18900, 18);
 
     employee1.about_employee();
     employee2.about_employee();

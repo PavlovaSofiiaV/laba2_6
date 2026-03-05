@@ -6,18 +6,19 @@
 #define LABA2_6_EMPLOYEE_H
 #include <string>
 
-class employee {
-    private:
+class Employee {
+private:
     std::string name;
     int work_days;
     int salary;
-    public:
-    employee();
-    employee(std::string new_name);
-    employee(std::string new_name, int new_salary);
-    employee(int new_salary, int new_work_days);
-    employee(std::string new_name, int new_salary, int new_work_days);
+public:
+    Employee();
+    Employee(std::string new_name);
+    Employee(std::string new_name, int new_salary);
+    Employee(std::string new_name, int new_salary, int new_work_days);
+    Employee(int new_salary, int new_work_days);
+    ~Employee();
+
     void about_employee();
-    ~employee();
 };
 #endif //LABA2_6_EMPLOYEE_H

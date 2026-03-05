@@ -6,19 +6,19 @@
 #define LABA2_6_READER_H
 #include <string>
 
-class reader {
-    public:
+class Reader {
+private:
     std::string name;
     std::string adrees;
     int number ;
     int book_count;
 public:
-    reader();
-    reader(std::string new_name);
-    reader(std::string new_name, std::string new_adrees);
-    reader(std::string new_name, std::string new_adrees, int new_number);
-    reader(std::string new_name, std::string new_adrees, int new_number, int book_count);
+    Reader();
+    Reader(std::string new_name);
+    Reader(std::string new_name, std::string new_adrees);
+    Reader(std::string new_name, std::string new_adrees, int new_number);
+    Reader(std::string new_name, std::string new_adrees, int new_number, int book_count);
     void aboutreader();
-    ~reader();
+    ~Reader();
 };
 #endif //LABA2_6_READER_H
