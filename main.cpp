@@ -1,9 +1,10 @@
+#include <iostream>
 #include "book.h"
 #include "reader.h"
-
-#include <iostream>
-
 #include "employee.h"
+
+
+
 using namespace std;
 
 
@@ -25,7 +26,7 @@ int main() {
     cout<<"\n==========About Reader==========\n";
     reader reader1;
     reader reader2("Pavlova Sofiia");
-    reader reader3("Shishko Ruslan","Nebesnoi Sotni 4v");
+    reader reader3("Shyshko Ruslana","Nebesnoi Sotni 4v");
     reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145);
     reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5);
 
@@ -39,8 +40,8 @@ int main() {
     cout<<"\n==========About Emploee============\n";
     employee employee1;
     employee employee2("Pavlova Sofiia");
-    employee employee3("Shishko Ruslan",17000);
-    employee employee4("Rozhman Damir",16780, 16);
+    employee employee3("Shyshko Ruslana",1000000);
+    employee employee4("Rozhman Damir",16780,30);
     employee employee5(18900, 18);
 
     employee1.about_employee();
