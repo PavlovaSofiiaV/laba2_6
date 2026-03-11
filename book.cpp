@@ -19,3 +19,6 @@ void Book::aboutbook()const {
               << "Pages: " << pages
               <<"\n-----------------------";
 }
+bool Book::operator==(const Book& other) const {
+    return this->author == other.author && this->title == other.title;
+}

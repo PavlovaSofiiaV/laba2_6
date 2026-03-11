@@ -26,6 +26,11 @@ int main() {
     book6.aboutbook();
     book7.aboutbook();
 
+    cout<<"\nEquals books:";
+    if (book3==book4) {
+        cout<<"\nBook 3 equals Book 4\n";
+    }
+
     cout<<endl;
     cout<<"\n==========About Reader==========\n";
     Reader reader1;
@@ -34,6 +39,8 @@ int main() {
     Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145);
     Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5);
     Reader reader6=Reader("Frayk Oleg");
+    Reader::showReaderCount();
+    cout<<endl;
 
     reader1.aboutreader();
     reader2.aboutreader();

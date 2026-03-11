@@ -12,6 +12,7 @@ private:
     std::string adrees;
     int number ;
     int book_count;
+    static int reader_count;
 public:
     Reader();
     Reader(std::string new_name);
@@ -20,6 +21,7 @@ public:
     Reader(std::string new_name, std::string new_adrees, int new_number, int book_count);
     Reader(Reader&& other);
     void aboutreader();
+    static void showReaderCount();
     ~Reader();
 };
 #endif //LABA2_6_READER_H

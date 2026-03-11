@@ -21,5 +21,6 @@ public:
     Book(const Book& other);
     ~Book();
     void aboutbook() const;
+    bool operator==(const Book& other) const;
 };
 #endif //LABA2_6_BOOK_H
