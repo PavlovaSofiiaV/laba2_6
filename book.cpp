@@ -22,3 +22,26 @@ void Book::aboutbook()const {
 bool Book::operator==(const Book& other) const {
     return this->author == other.author && this->title == other.title;
 }
+std::ostream& operator<<(std::ostream& out, const Book& b) {
+    out << "\nTitle: " << b.title << "\n"
+        << "Author: " << b.author << "\n"
+        << "Year: " << b.year << "\n"
+        << "Pages: " << b.pages
+        <<"\n-----------------------";
+
+    return out; // завжди повертаємо потік
+}
+
+// Ввід книги
+std::istream& operator>>(std::istream& in, Book& b) {
+    std::cout << "Enter title: ";
+    std::getline(in, b.title);
+    std::cout << "Enter author: ";
+    std::getline(in, b.author);
+    std::cout << "Enter year: ";
+    in >> b.year;
+    std::cout << "Enter pages: ";
+    in >> b.pages;
+    in.ignore(); // щоб пропустити '\n' після числа
+    return in;   // завжди повертаємо потік
+}

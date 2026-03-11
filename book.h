@@ -22,5 +22,7 @@ public:
     ~Book();
     void aboutbook() const;
     bool operator==(const Book& other) const;
+    friend std::ostream& operator<<(std::ostream& out, const Book& b);
+    friend std::istream& operator>>(std::istream& in, Book& b);
 };
 #endif //LABA2_6_BOOK_H

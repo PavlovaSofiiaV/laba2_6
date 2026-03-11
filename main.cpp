@@ -19,7 +19,7 @@ int main() {
     const Book book7("The Inheritance Games");
 
     book1.aboutbook();
-    book2.aboutbook();
+    cout<<book2;
     book3.aboutbook();
     book4.aboutbook();
     book5.aboutbook();
