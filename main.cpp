@@ -16,6 +16,7 @@ int main() {
     Book book4("The Inheritance Games", "Jennifer Lynn Barnes", 2020);
     Book book5("The Inheritance Games", "Jennifer Lynn Barnes", 2020, 384);
     Book book6=book3;
+    const Book book7("The Inheritance Games");
 
     book1.aboutbook();
     book2.aboutbook();
@@ -23,6 +24,7 @@ int main() {
     book4.aboutbook();
     book5.aboutbook();
     book6.aboutbook();
+    book7.aboutbook();
 
     cout<<endl;
     cout<<"\n==========About Reader==========\n";

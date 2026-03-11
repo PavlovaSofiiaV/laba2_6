@@ -12,7 +12,7 @@ Book::Book(std::string new_title, std::string new_author, int new_year):  title 
 Book::Book(std::string new_title, std::string new_author, int new_year, int new_pages):title {new_title}, author{new_author}, year {new_year}, pages {new_pages} {}
 Book::Book(const Book& other): title{other.title},author{other.author},year{other.year},pages{other.pages} {}
 Book::~Book(){}
-void Book::aboutbook() {
+void Book::aboutbook()const {
     std::cout << std::endl<< "Title: " << title << "\n"
               << "Author: " << author << "\n"
               << "Year: " << year << "\n"
