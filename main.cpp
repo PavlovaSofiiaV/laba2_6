@@ -31,12 +31,14 @@ int main() {
     Reader reader3("Shyshko Ruslana","Nebesnoi Sotni 4v");
     Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145);
     Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5);
+    Reader reader6=Reader("Frayk Oleg");
 
     reader1.aboutreader();
     reader2.aboutreader();
     reader3.aboutreader();
     reader4.aboutreader();
     reader5.aboutreader();
+    reader6.aboutreader();
 
     cout<<endl;
     cout<<"\n==========About Emploee============\n";
