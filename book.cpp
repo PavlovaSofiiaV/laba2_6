@@ -4,14 +4,17 @@
 #include "book.h"
 #include <string>
 #include <iostream>
-
-Book::Book(): title {"None"}, author{"None"}, year {0}, pages {0} {}
-Book::Book(std::string new_title): title {new_title}, author{"None"}, year {0}, pages {0} {}
-Book::Book(std::string new_title, std::string new_author): title {new_title}, author{new_author}, year {0}, pages {0} {}
-Book::Book(std::string new_title, std::string new_author, int new_year):  title {new_title}, author{new_author}, year {new_year}, pages {0} {}
-Book::Book(std::string new_title, std::string new_author, int new_year, int new_pages):title {new_title}, author{new_author}, year {new_year}, pages {new_pages} {}
-Book::Book(const Book& other): title{other.title},author{other.author},year{other.year},pages{other.pages} {}
-Book::~Book(){}
+int Book::book_count = 0;
+Book::Book(): title {"None"}, author{"None"}, year {0}, pages {0} {book_count++;}
+Book::Book(std::string new_title): title {new_title}, author{"None"}, year {0}, pages {0} {book_count++;}
+Book::Book(std::string new_title, std::string new_author): title {new_title}, author{new_author}, year {0}, pages {0} {book_count++;}
+Book::Book(std::string new_title, std::string new_author, int new_year):  title {new_title}, author{new_author}, year {new_year}, pages {0} {book_count++;}
+Book::Book(std::string new_title, std::string new_author, int new_year, int new_pages):title {new_title}, author{new_author}, year {new_year}, pages {new_pages} {book_count++;}
+Book::Book(const Book& other): title{other.title},author{other.author},year{other.year},pages{other.pages} {book_count++;}
+Book::~Book(){book_count++;}
+void Book::showBookCount() {
+    std::cout << "Total books: " << book_count << std::endl;
+}
 void Book::aboutbook()const {
     std::cout << std::endl<< "Title: " << title << "\n"
               << "Author: " << author << "\n"
@@ -22,26 +25,23 @@ void Book::aboutbook()const {
 bool Book::operator==(const Book& other) const {
     return this->author == other.author && this->title == other.title;
 }
-std::ostream& operator<<(std::ostream& out, const Book& b) {
-    out << "\nTitle: " << b.title << "\n"
+std::ostream& operator<<(std::ostream& os, const Book& b) {
+    os << "\nTitle: " << b.title << "\n"
         << "Author: " << b.author << "\n"
         << "Year: " << b.year << "\n"
         << "Pages: " << b.pages
         <<"\n-----------------------";
-
-    return out; // завжди повертаємо потік
+    return os;
 }
 
-// Ввід книги
-std::istream& operator>>(std::istream& in, Book& b) {
+std::istream& operator>>(std::istream& is, Book& b) {
     std::cout << "Enter title: ";
-    std::getline(in, b.title);
+    std::getline(is, b.title);
     std::cout << "Enter author: ";
-    std::getline(in, b.author);
+    std::getline(is, b.author);
     std::cout << "Enter year: ";
-    in >> b.year;
+    is >> b.year;
     std::cout << "Enter pages: ";
-    in >> b.pages;
-    in.ignore(); // щоб пропустити '\n' після числа
-    return in;   // завжди повертаємо потік
+    is >> b.pages;
+    return is;
 }

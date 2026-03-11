@@ -12,6 +12,7 @@ private:
     std::string author;
     int year;
     int pages;
+    static int book_count;
 public:
     Book();
     Book(std::string new_title);
@@ -20,9 +21,13 @@ public:
     Book(std::string new_title, std::string new_author, int new_year, int new_pages);
     Book(const Book& other);
     ~Book();
+
+    void showReaderCount();
+
     void aboutbook() const;
     bool operator==(const Book& other) const;
     friend std::ostream& operator<<(std::ostream& out, const Book& b);
     friend std::istream& operator>>(std::istream& in, Book& b);
+    static void showBookCount();
 };
 #endif //LABA2_6_BOOK_H

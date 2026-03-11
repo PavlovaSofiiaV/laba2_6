@@ -17,6 +17,8 @@ int main() {
     Book book5("The Inheritance Games", "Jennifer Lynn Barnes", 2020, 384);
     Book book6=book3;
     const Book book7("The Inheritance Games");
+    Book::showBookCount();
+    cout<<endl;
 
     book1.aboutbook();
     cout<<book2;
