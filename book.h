@@ -19,7 +19,7 @@ public:
     Book(std::string new_title, std::string new_author);
     Book(std::string new_title, std::string new_author, int new_year);
     Book(std::string new_title, std::string new_author, int new_year, int new_pages);
-    Book(const Book& other);
+    Book(const Book& other);//copy constructor
     ~Book();
 
     void showReaderCount();

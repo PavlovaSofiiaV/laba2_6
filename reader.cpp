@@ -21,7 +21,7 @@ Reader::Reader(std::string new_name,std::string new_adrees, int new_number, int 
     reader_count++;
 }
 Reader::Reader(Reader&& other): name{other.name}, adrees{other.adrees}, number {other.number}, book_count {other.book_count} {
-    reader_count++;
+    reader_count++;//Move constructor
 }
 Reader::~Reader() {
     reader_count++;

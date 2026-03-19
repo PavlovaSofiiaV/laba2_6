@@ -7,25 +7,25 @@ Employee::Employee() {
     salary=0;
     work_days=0;
 }
-Employee::Employee(std::string new_name) {
-    this->name=new_name;
+Employee::Employee(std::string name) {
+    this->name=name;
     salary=0;
     work_days=0;
 }
-Employee::Employee(std::string new_name, int new_salary) {
-    this->name=new_name;
-    this->salary=new_salary;
+Employee::Employee(std::string name, int salary) {
+    this->name=name;
+    this->salary=salary;
     work_days=0;
 }
-Employee::Employee(std::string new_name, int new_salary,int new_work_days) {
-    this->name=new_name;
-    this->salary=new_salary;
-    this->work_days=new_work_days;
+Employee::Employee(std::string name, int salary,int work_days) {
+    this->name=name;
+    this->salary=salary;
+    this->work_days=work_days;
 }
-Employee::Employee( int new_salary, int new_work_days) {
+Employee::Employee( int salary, int work_days) {
     name="None";
-    this->salary=new_salary;
-    this->work_days=new_work_days;
+    this->salary=salary;
+    this->work_days=work_days;
 }
 Employee::~Employee(){}
 void Employee::about_employee() {
