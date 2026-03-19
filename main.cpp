@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main() {
-    cout<<"==========About books==========";
+    Book book0;
     Book book1;
     Book book2("The Inheritance Games");
     Book book3("The Inheritance Games", "Jennifer Lynn Barnes");
@@ -17,11 +17,16 @@ int main() {
     Book book5("The Inheritance Games", "Jennifer Lynn Barnes", 2020, 384);
     Book book6=book3;
     const Book book7("The Inheritance Games");
+
+
+    cin>>book0;
+
+    cout<<"==========About books==========";
     Book::showBookCount();
     cout<<endl;
-
+    cout<<book0;
     book1.aboutbook();
-    cout<<book2;
+    book2.aboutbook();
     book3.aboutbook();
     book4.aboutbook();
     book5.aboutbook();

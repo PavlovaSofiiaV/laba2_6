@@ -23,7 +23,7 @@ public:
     ~Book();
 
     void aboutbook() const;
-    bool operator==(const Book& other) const;
+    bool operator==(const Book& other) const;//binary
     friend std::ostream& operator<<(std::ostream& out, const Book& b);
     friend std::istream& operator>>(std::istream& in, Book& b);
     static void showBookCount();
