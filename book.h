@@ -22,8 +22,6 @@ public:
     Book(const Book& other);//copy constructor
     ~Book();
 
-    void showReaderCount();
-
     void aboutbook() const;
     bool operator==(const Book& other) const;
     friend std::ostream& operator<<(std::ostream& out, const Book& b);

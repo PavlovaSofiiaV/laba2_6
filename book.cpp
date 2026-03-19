@@ -11,7 +11,7 @@ Book::Book(std::string new_title, std::string new_author): title {new_title}, au
 Book::Book(std::string new_title, std::string new_author, int new_year):  title {new_title}, author{new_author}, year {new_year}, pages {0} {book_count++;}
 Book::Book(std::string new_title, std::string new_author, int new_year, int new_pages):title {new_title}, author{new_author}, year {new_year}, pages {new_pages} {book_count++;}
 Book::Book(const Book& other): title{other.title},author{other.author},year{other.year},pages{other.pages} {book_count++;}//copy constructor
-Book::~Book(){book_count++;}
+Book::~Book(){}
 void Book::showBookCount() {
     std::cout << "\nTotal books: " << book_count;
 }
