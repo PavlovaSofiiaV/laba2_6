@@ -2,6 +2,7 @@
 #include "book.h"
 #include "reader.h"
 #include "employee.h"
+#include "librarian.h"
 
 
 
@@ -69,5 +70,8 @@ int main() {
     employee3.about_employee();
     employee4.about_employee();
     employee5.about_employee();
+
+    Librarian lib1("Anna", 20000, 20, 150);
+    lib1.about_librarian();
     return 0;
 }
