@@ -23,6 +23,7 @@ public:
     ~Book();
 
     void aboutbook() const;
+    std::string getTitle() const;
     bool operator==(const Book& other) const;//binary
     friend std::ostream& operator<<(std::ostream& out, const Book& b);
     friend std::istream& operator>>(std::istream& in, Book& b);

@@ -4,20 +4,21 @@
 #include "reader.h"
 #include <string>
 #include <iostream>
+#include"book.h"
 int Reader::reader_count = 0;
-Reader::Reader() :Person("None"), adrees{"None"}, number {0}, book_count {0} {
+Reader::Reader() :Person("None"), book("None"), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name): Person(name), adrees{"None"}, number {0}, book_count {0} {
+Reader::Reader(std::string name,Book b): Person(name),book(b), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees): Person(name),adrees{new_adrees}, number {0}, book_count {0} {
+Reader::Reader(std::string name,std::string new_adrees,Book b): Person(name),book(b),adrees{new_adrees}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees, int new_number):Person(name), adrees{new_adrees}, number {new_number}, book_count {0} {
+Reader::Reader(std::string name,std::string new_adrees, int new_number,Book b):Person(name),book(b), adrees{new_adrees}, number {new_number}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees, int new_number, int new_book_count):Person(name), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
+Reader::Reader(std::string name,std::string new_adrees, int new_number, int new_book_count,Book b):Person(name),book(b), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
     reader_count++;
 }
 Reader::Reader(Reader&& other):Person(name), adrees{other.adrees}, number {other.number}, book_count {other.book_count} {
@@ -28,7 +29,8 @@ void Reader::aboutreader() {
     std::cout << "Name: " << name << "\n"
               << "Adress: " << adrees << "\n"
               << "Phone number: " << number << "\n"
-              << "Amount of books: " << book_count
+              << "Amount of books: " << book_count<<"\n"
+              <<"Books name: "<<book.getTitle()<<"\n"
               <<"\n------------------------\n";
 }
 void Reader::showReaderCount() {

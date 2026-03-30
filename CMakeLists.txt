@@ -11,4 +11,5 @@ add_executable(laba2_6 main.cpp
         employee.h
         employee.cpp
         person.h
-        person.cpp)
+        person.cpp
+        librarian.h)

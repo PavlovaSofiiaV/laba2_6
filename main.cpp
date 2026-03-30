@@ -41,11 +41,11 @@ int main() {
     cout<<endl;
     cout<<"\n==========About Reader==========\n";
     Reader reader1;
-    Reader reader2("Pavlova Sofiia");
-    Reader reader3("Shyshko Ruslana","Nebesnoi Sotni 4v");
-    Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145);
-    Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5);
-    Reader reader6=Reader("Frayk Oleg");
+    Reader reader2("Pavlova Sofiia",book0);
+    Reader reader3("Shyshko Ruslana","Nebesnoi Sotni 4v",book1);
+    Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145,book3);
+    Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5,book4);
+    Reader reader6=Reader("Frayk Oleg", book5);
     Reader::showReaderCount();
     cout<<endl;
 

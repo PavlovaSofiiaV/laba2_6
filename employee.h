@@ -7,7 +7,7 @@
 #include <string>
 #include "person.h"
 
-class Employee:public Person{
+class Employee:public Person{//is-a
 private:
     int work_days;
     int salary;
