@@ -1,29 +1,26 @@
 #include <string>
 #include "employee.h"
 #include <iostream>
+#include "person.h"
 
-Employee::Employee() {
-    name="None";
+Employee::Employee(): Person("None")  {
     salary=0;
     work_days=0;
 }
-Employee::Employee(std::string name) {
-    this->name=name;
+Employee::Employee(std::string name): Person(name) {
     salary=0;
     work_days=0;
 }
-Employee::Employee(std::string name, int salary) {
-    this->name=name;
+Employee::Employee(std::string name, int salary):Person(name) {
     this->salary=salary;
     work_days=0;
 }
-Employee::Employee(std::string name, int salary,int work_days) {
-    this->name=name;
+Employee::Employee(std::string name, int salary,int work_days):Person(name) {
     this->salary=salary;
     this->work_days=work_days;
 }
-Employee::Employee( int salary, int work_days) {
-    name="None";
+Employee::Employee( int salary, int work_days): Person("None") {
+
     this->salary=salary;
     this->work_days=work_days;
 }

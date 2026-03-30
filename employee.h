@@ -5,10 +5,10 @@
 #ifndef LABA2_6_EMPLOYEE_H
 #define LABA2_6_EMPLOYEE_H
 #include <string>
+#include "person.h"
 
-class Employee {
+class Employee:public Person{
 private:
-    std::string name;
     int work_days;
     int salary;
 public:

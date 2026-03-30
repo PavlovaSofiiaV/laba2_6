@@ -9,4 +9,6 @@ add_executable(laba2_6 main.cpp
         reader.h
         reader.cpp
         employee.h
-        employee.cpp)
+        employee.cpp
+        person.h
+        person.cpp)
