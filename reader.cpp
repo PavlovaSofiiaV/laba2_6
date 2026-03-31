@@ -21,18 +21,33 @@ Reader::Reader(std::string name,std::string new_adrees, int new_number,Book b):P
 Reader::Reader(std::string name,std::string new_adrees, int new_number, int new_book_count,Book b):Person(name),book(b), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
     reader_count++;
 }
-Reader::Reader(Reader&& other):Person(name), adrees{other.adrees}, number {other.number}, book_count {other.book_count} {
-    reader_count++;//Move constructor
+Reader::Reader(Reader&& other):Person(other),book(other.book), adrees{other.adrees}, number {other.number}, book_count {other.book_count} {
+    reader_count++;
+}//Move constructor
+Reader::Reader(Reader& other):Person(other), book(other.book), adrees(other.adrees), number(other.number),book_count(other.book_count) {
+    reader_count++;
+}//copy constructor
+Reader& Reader::operator=(const Reader& other) {
+    if (this != &other) {
+        Person::operator=(other);
+        book = other.book;
+        adrees = other.adrees;
+        number = other.number;
+        book_count = other.book_count;
+    }
+    return *this;
 }
-Reader::~Reader() {}
 void Reader::aboutreader() {
     std::cout << "Name: " << name << "\n"
-              << "Adress: " << adrees << "\n"
-              << "Phone number: " << number << "\n"
-              << "Amount of books: " << book_count<<"\n"
-              <<"Books name: "<<book.getTitle()<<"\n"
-              <<"\n------------------------\n";
+            << "Adress: " << adrees << "\n"
+            << "Phone number: " << number << "\n"
+            << "Amount of books: " << book_count<<"\n"
+            <<"Books name: "<<book.getTitle()<<"\n"
+            <<"\n------------------------\n";
 }
 void Reader::showReaderCount() {
     std::cout << "Total readers created: " << reader_count << std::endl;
+}
+Reader::~Reader() {
+    reader_count--;
 }

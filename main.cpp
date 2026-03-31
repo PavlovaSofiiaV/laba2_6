@@ -47,6 +47,8 @@ int main() {
     Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145,book3);
     Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5,book4);
     Reader reader6=Reader("Frayk Oleg", book5);
+    Reader reader7;
+    reader7=reader6;
     Reader::showReaderCount();
     cout<<endl;
 
@@ -56,6 +58,7 @@ int main() {
     reader4.aboutreader();
     reader5.aboutreader();
     reader6.aboutreader();
+    reader7.aboutreader();
 
     cout<<endl;
     cout<<"\n==========About Emploee============\n";
@@ -71,7 +74,9 @@ int main() {
     employee4.about_employee();
     employee5.about_employee();
 
-    Librarian lib1("Anna", 20000, 20, 150);
+    cout<<endl;
+    cout<<"\n==========About Librarian============\n";
+    Librarian lib1("Ruslana", 250000, 20, 150);
     lib1.about_librarian();
     return 0;
 }

@@ -9,5 +9,11 @@ Person::Person() {
 Person::Person(std::string name) {
     this -> name = name;
 }
+Person& Person::operator=(const Person& other) {
+    if (this != &other) {
+        name = other.name;
+    }
+    return *this;
+}
 Person::~Person(){}
 

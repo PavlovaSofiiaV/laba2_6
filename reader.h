@@ -24,6 +24,10 @@ public:
     Reader(std::string name, std::string new_adrees, int new_number, int new_book_count, Book b);
 
     Reader(Reader&& other);//Move constructor
+    Reader(Reader& other);
+
+    Reader &operator=(const Reader &other);
+
     void aboutreader();
     static void showReaderCount();
     ~Reader();

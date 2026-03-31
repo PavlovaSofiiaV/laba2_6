@@ -4,20 +4,16 @@
 #include "librarian.h"
 #include <iostream>
 
-Librarian::Librarian() : Employee("None", 0, 0), books_managed(0) {
-    std::cout << "Librarian constructor\n";
-}
-
+Librarian::Librarian() : Employee("None", 0, 0), books_managed(0) {}
 Librarian::Librarian(std::string name, int salary, int work_days, int books)
-    : Employee(name, salary, work_days), books_managed(books) {
-    std::cout << "Librarian constructor\n";
-}
+    : Employee(name, salary, work_days), books_managed(books) {}
 
-Librarian::~Librarian() {
-    std::cout << "Librarian destructor\n";
-}
+Librarian::~Librarian() {}
 
 void Librarian::about_librarian() {
     std::cout << "Name: " << name << "\n"
-              << "Books managed: " << books_managed << "\n";
+              << "Salary: " << salary << "\n"
+              << "Work days: " << work_days << "\n"
+              << "Books managed: " << books_managed
+              <<"\n-----------------------\n";
 }

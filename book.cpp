@@ -27,7 +27,7 @@ std::string Book::getTitle() const {
 }
 bool Book::operator==(const Book& other) const {
     return this->author == other.author && this->title == other.title;
-}//binary
+}
 std::ostream& operator<<(std::ostream& os, const Book& b) {
     os << "\nTitle: " << b.title << "\n"
         << "Author: " << b.author << "\n"

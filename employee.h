@@ -8,7 +8,7 @@
 #include "person.h"
 
 class Employee:public Person{//is-a
-private:
+protected:
     int work_days;
     int salary;
 public:

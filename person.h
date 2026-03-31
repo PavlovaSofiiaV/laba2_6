@@ -12,6 +12,8 @@ class Person {
 public:
     Person();
     Person(std::string name);
+    Person &operator=(const Person &other);
+
     ~Person();
 };
 
