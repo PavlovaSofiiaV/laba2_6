@@ -12,6 +12,9 @@ private:
 
 public:
     Librarian();
+    Librarian(std::string name);
+    Librarian(std::string name, int salary);
+    Librarian(std::string name, int salary, int work_days);
     Librarian(std::string name, int salary, int work_days, int books);
 
     void about_librarian();

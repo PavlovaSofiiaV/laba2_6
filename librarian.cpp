@@ -5,8 +5,10 @@
 #include <iostream>
 
 Librarian::Librarian() : Employee("None", 0, 0), books_managed(0) {}
-Librarian::Librarian(std::string name, int salary, int work_days, int books)
-    : Employee(name, salary, work_days), books_managed(books) {}
+Librarian::Librarian(std::string name) : Employee(name,0, 0), books_managed(0) {}
+Librarian::Librarian(std::string name, int salary) : Employee(name,salary, 0), books_managed(0) {}
+Librarian::Librarian(std::string name, int salary, int work_days) : Employee(name,salary, work_days), books_managed(0) {}
+Librarian::Librarian(std::string name, int salary, int work_days, int books) :Employee(name, salary, work_days), books_managed(books) {}
 
 Librarian::~Librarian() {}
 

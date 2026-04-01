@@ -19,6 +19,6 @@ public:
     Employee(int salary, int work_days);
     ~Employee();
 
-    void about_employee();
+    //void about_employee();
 };
 #endif //LABA2_6_EMPLOYEE_H

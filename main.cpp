@@ -60,19 +60,19 @@ int main() {
     reader6.aboutreader();
     reader7.aboutreader();
 
-    cout<<endl;
-    cout<<"\n==========About Emploee============\n";
+    //cout<<endl;
+    //cout<<"\n==========About Emploee============\n";
     Employee employee1;
     Employee employee2("Pavlova Sofiia");
     Employee employee3("Shyshko Ruslana",1000000);
     Employee employee4("Rozhman Damir",16780,30);
     Employee employee5(18900, 18);
 
-    employee1.about_employee();
-    employee2.about_employee();
-    employee3.about_employee();
-    employee4.about_employee();
-    employee5.about_employee();
+    // employee1.about_employee();
+    // employee2.about_employee();
+    // employee3.about_employee();
+    // employee4.about_employee();
+    // employee5.about_employee();
 
     cout<<endl;
     cout<<"\n==========About Librarian============\n";
