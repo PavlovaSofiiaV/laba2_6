@@ -5,6 +5,7 @@
 #ifndef LABA2_6_PERSON_H
 #define LABA2_6_PERSON_H
 #include <string>
+#include <iostream>
 
 class Person {
     protected:
@@ -14,7 +15,11 @@ public:
     Person(std::string name);
     Person &operator=(const Person &other);
 
-    ~Person();
+    void showRole();
+    void showName();
+    virtual void inforead();
+
+    virtual ~Person() {};
 };
 
 

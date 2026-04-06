@@ -12,6 +12,9 @@ Librarian::Librarian(std::string name, int salary, int work_days, int books) :Em
 
 Librarian::~Librarian() {}
 
+void Librarian::showProfession(){
+    std::cout << "Librarian\n";
+}
 void Librarian::about_librarian() {
     std::cout << "Name: " << name << "\n"
               << "Salary: " << salary << "\n"
@@ -19,3 +22,4 @@ void Librarian::about_librarian() {
               << "Books managed: " << books_managed
               <<"\n-----------------------\n";
 }
+

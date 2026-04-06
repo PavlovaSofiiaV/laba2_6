@@ -24,6 +24,13 @@ Employee::Employee( int salary, int work_days): Person("None") {
     this->salary=salary;
     this->work_days=work_days;
 }
+void Employee::showRole() {
+    std::cout << "Employee\n";
+}
+
+void Employee::showProfession() {
+    std::cout<< "-Employee\n";
+}
 Employee::~Employee(){}
 // void Employee::about_employee() {
 //     std::cout << "Name: " << name << "\n"

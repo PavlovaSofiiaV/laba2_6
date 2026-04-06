@@ -20,7 +20,7 @@ int main() {
     const Book book7("The Inheritance Games");
 
 
-    cin>>book0;
+   // cin>>book0;
 
     cout<<"==========About books==========";
     Book::showBookCount();
@@ -78,5 +78,24 @@ int main() {
     cout<<"\n==========About Librarian============\n";
     Librarian lib1("Ruslana", 250000, 20, 150);
     lib1.about_librarian();
+
+    cout<<endl;
+    cout<<"\n==========Laba 5============\n";
+    Person* p;
+    p = new Reader("Sofiia");
+    p->showName();
+    p->showRole();
+    delete p;
+
+    Employee* emp;
+    emp=new Librarian("Pavlova Sofiia");
+    emp->showName();
+    emp->showProfession();
+    delete emp;
+
+    Reader* r;
+    r = new Reader("Rozhman Damir",book3);
+    r->showName();
+
     return 0;
 }

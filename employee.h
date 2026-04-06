@@ -7,7 +7,7 @@
 #include <string>
 #include "person.h"
 
-class Employee:public Person{//is-a
+class Employee:public Person{
 protected:
     int work_days;
     int salary;
@@ -17,6 +17,9 @@ public:
     Employee(std::string name, int salary);
     Employee(std::string name, int salary, int work_days);
     Employee(int salary, int work_days);
+    void showRole();
+    virtual void showProfession();
+    
     ~Employee();
 
     //void about_employee();

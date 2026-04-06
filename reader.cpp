@@ -9,6 +9,9 @@ int Reader::reader_count = 0;
 Reader::Reader() :Person("None"), book("None"), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
+Reader::Reader(std::string name): Person(name),book{"None"}, adrees{"None"}, number {0}, book_count {0} {
+    reader_count++;
+}
 Reader::Reader(std::string name,Book b): Person(name),book(b), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
@@ -47,6 +50,10 @@ void Reader::aboutreader() {
 }
 void Reader::showReaderCount() {
     std::cout << "Total readers created: " << reader_count << std::endl;
+}
+
+void Reader::showRole() {
+    std::cout << "Reader\n";
 }
 Reader::~Reader() {
     reader_count--;

@@ -15,5 +15,12 @@ Person& Person::operator=(const Person& other) {
     }
     return *this;
 }
-Person::~Person(){}
-
+void Person::showRole() {
+    std::cout << "Person\n";
+}
+void Person::showName() {
+    std::cout << "Name: " << name << std::endl;
+}
+void Person::inforead() {
+    std::cout << name << " is not reading a book.\n";
+}

@@ -9,7 +9,6 @@
 class Librarian : public Employee {
 private:
     int books_managed;
-
 public:
     Librarian();
     Librarian(std::string name);
@@ -18,6 +17,8 @@ public:
     Librarian(std::string name, int salary, int work_days, int books);
 
     void about_librarian();
+    void showProfession () override ;
+
     ~Librarian();
 };
 

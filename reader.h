@@ -8,16 +8,17 @@
 #include "person.h"
 #include "book.h"
 
-class Reader:public Person {//is-a
+class Reader:public Person {
 private:
     std::string adrees;
     int number ;
     int book_count;
     static int reader_count;
-    Book book;//has-a
+    Book book;
 public:
 
     Reader();
+    Reader(std::string name);
     Reader(std::string name, Book b);
     Reader(std::string name, std::string new_adrees, Book b);
     Reader(std::string name, std::string new_adrees, int new_number, Book b);
@@ -30,6 +31,8 @@ public:
 
     void aboutreader();
     static void showReaderCount();
+    void showRole();
+
     ~Reader();
 };
 #endif //LABA2_6_READER_H
