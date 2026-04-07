@@ -34,7 +34,7 @@ public:
     void showBase();
     void showBook() override;
     void activity() override;
-    void showRole() override;
+    void showRole()override;
 
    virtual ~Reader();
 };

@@ -17,7 +17,7 @@ class Cleaner:public Employee{
     Cleaner(std::string name, int salary, int work_days, int books);
     Cleaner(std::string name, int salary, int work_days, int books, int room);
 
-    void showProfession() ;
+    void showProfession() override;
     void activity() override;
     void showRole() override;
     virtual ~Cleaner();
