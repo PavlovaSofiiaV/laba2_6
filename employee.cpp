@@ -24,9 +24,9 @@ Employee::Employee( int salary, int work_days): Person("None") {
     this->salary=salary;
     this->work_days=work_days;
 }
-void Employee::showBase() {
-    std::cout << "is an employee\n";
-}
+// void Employee::showBase() {
+//     std::cout << "is an employee\n";
+// }
 void Employee::showProfession() {
     std::cout << " is employee";
 }

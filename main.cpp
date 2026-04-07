@@ -87,7 +87,7 @@ int main() {
     Person* r;
     r = new Reader("Sofiia");
     r->showName();
-    r->showBase();
+   // r->showBase();
     delete r;
 
     Person* p;

@@ -31,7 +31,7 @@ public:
 
     void aboutreader();
     static void showReaderCount();
-    void showBase();
+    //void showBase();
     void showBook() override;
     void activity() override;
     void showRole()override;

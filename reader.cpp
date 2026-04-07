@@ -53,10 +53,10 @@ void Reader::showReaderCount() {
 }
 
 
-void Reader::showBase() {
-    std::cout << "Reader\n";
-}
-void Reader::showBook() {
+// void Reader::showBase() {
+//     std::cout << "Reader\n";
+// }
+void Reader::showBook()  {
     std::cout<<" has: " << book.getTitle();
 }
 void Reader::activity() {
