@@ -15,6 +15,12 @@ Cleaner::Cleaner(std::string name, int salary, int work_days, int room) :Employe
 void Cleaner::showProfession() {
     std::cout << "Cleaner\n";
 }
+void Cleaner::activity() {
+    std::cout<<"\n" << name << " cleans the library";
+}
+void Cleaner::showRole() {
+    std::cout<< "\nName: " << name<<" is a cleaner";
+}
 
 Cleaner::~Cleaner() {
 

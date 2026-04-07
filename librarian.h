@@ -16,8 +16,9 @@ public:
     Librarian(std::string name, int salary, int work_days);
     Librarian(std::string name, int salary, int work_days, int books);
     void about_librarian();
-
+    void activity() override;
     void showProfession ();
+    void showRole() override;
     virtual ~Librarian();
 };
 

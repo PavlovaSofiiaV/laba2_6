@@ -17,9 +17,11 @@ public:
     Employee(std::string name, int salary);
     Employee(std::string name, int salary, int work_days);
     Employee(int salary, int work_days);
-    void showRole();
+    void showBase();
     void showProfession ()override;
     void showBook() final;
+    void activity() override;
+    void showRole()override;
     virtual ~Employee();
 
     //void about_employee();

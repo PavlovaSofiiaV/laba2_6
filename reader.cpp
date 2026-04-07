@@ -52,11 +52,18 @@ void Reader::showReaderCount() {
     std::cout << "Total readers created: " << reader_count << std::endl;
 }
 
-void Reader::showRole() {
-    std::cout << " is a reader and";
+
+void Reader::showBase() {
+    std::cout << "Reader\n";
 }
 void Reader::showBook() {
     std::cout<<" has: " << book.getTitle();
+}
+void Reader::activity() {
+    std::cout<<"\n" << name << " reads a book";
+}
+void Reader::showRole() {
+    std::cout<< "\nName: " << name << " is a reader";
 }
 Reader::~Reader() {
     reader_count--;

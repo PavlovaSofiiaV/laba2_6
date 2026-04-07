@@ -21,4 +21,10 @@ void Librarian::about_librarian() {
 void Librarian::showProfession(){
     std::cout << " is a librarian";
 }
+void Librarian::activity()  {
+    std::cout<<"\n" << name << " organizes books and helps readers";
+}
+void Librarian::showRole() {
+    std::cout<< "\nName: " << name<<" is a librarian";
+}
 Librarian::~Librarian() {}

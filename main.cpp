@@ -3,12 +3,15 @@
 #include "reader.h"
 #include "employee.h"
 #include "librarian.h"
+#include "person.h"
+#include "cleaner.h"
 
 
 
 using namespace std;
-
-
+void dailyActivity(Person& p) {
+    p.activity();
+}
 int main() {
     Book book0;
     Book book1;
@@ -84,7 +87,7 @@ int main() {
     Person* r;
     r = new Reader("Sofiia");
     r->showName();
-    r->showRole();
+    r->showBase();
     delete r;
 
     Person* p;
@@ -106,6 +109,24 @@ int main() {
     p=new Employee("Pavlova");
     p->showName();
     p->showBook();
+    delete p;
+
+    cout<<endl;
+    Reader a("Alice");
+    //Librarian l("Sofiia");
+    Cleaner c("Ruslana");
+    Employee e("Bogdan");
+
+    dailyActivity(a);
+    dailyActivity(c);
+    //dailyActivity(l);
+
+    cout<<endl;
+    Person &f =e;
+    f.showRole();
+
+    p=new Librarian("Pavlova Sofiia");
+    p->showRole();
     delete p;
 
 

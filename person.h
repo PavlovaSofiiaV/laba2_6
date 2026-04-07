@@ -16,9 +16,12 @@ public:
     Person &operator=(const Person &other);
 
     void showName();
-    void showRole();
+    void showBase();
     virtual void showProfession();
     virtual void showBook();
+    virtual void activity();
+    virtual void showRole()=0;
+
 
     virtual ~Person();
 };

@@ -31,8 +31,10 @@ public:
 
     void aboutreader();
     static void showReaderCount();
-    void showRole();
+    void showBase();
     void showBook() override;
+    void activity() override;
+    void showRole() override;
 
    virtual ~Reader();
 };
