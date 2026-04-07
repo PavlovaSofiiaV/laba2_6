@@ -6,7 +6,7 @@
 #define LABA2_6_LIBRARIAN_H
 #include "employee.h"
 
-class Librarian : public Employee {
+class Librarian final : public Employee {
 private:
     int books_managed;
 public:
@@ -15,11 +15,10 @@ public:
     Librarian(std::string name, int salary);
     Librarian(std::string name, int salary, int work_days);
     Librarian(std::string name, int salary, int work_days, int books);
-
     void about_librarian();
-    void showProfession () override ;
 
-    ~Librarian();
+    void showProfession ();
+    virtual ~Librarian();
 };
 
 #endif //LABA2_6_LIBRARIAN_H

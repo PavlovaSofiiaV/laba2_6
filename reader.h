@@ -32,7 +32,8 @@ public:
     void aboutreader();
     static void showReaderCount();
     void showRole();
+    void showBook() override;
 
-    ~Reader();
+   virtual ~Reader();
 };
 #endif //LABA2_6_READER_H

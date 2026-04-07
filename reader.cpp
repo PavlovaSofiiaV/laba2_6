@@ -53,7 +53,10 @@ void Reader::showReaderCount() {
 }
 
 void Reader::showRole() {
-    std::cout << "Reader\n";
+    std::cout << " is a reader and";
+}
+void Reader::showBook() {
+    std::cout<<" has: " << book.getTitle();
 }
 Reader::~Reader() {
     reader_count--;

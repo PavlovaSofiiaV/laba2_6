@@ -13,7 +13,7 @@ int main() {
     Book book0;
     Book book1;
     Book book2("The Inheritance Games");
-    Book book3("The Inheritance Games", "Jennifer Lynn Barnes");
+    Book book3("Hellp", "Jennifer Lynn Barnes");
     Book book4("The Inheritance Games", "Jennifer Lynn Barnes", 2020);
     Book book5("The Inheritance Games", "Jennifer Lynn Barnes", 2020, 384);
     Book book6=book3;
@@ -81,21 +81,33 @@ int main() {
 
     cout<<endl;
     cout<<"\n==========Laba 5============\n";
+    Person* r;
+    r = new Reader("Sofiia");
+    r->showName();
+    r->showRole();
+    delete r;
+
     Person* p;
-    p = new Reader("Sofiia");
+    p=new Librarian("Pavlova Sofiia");
     p->showName();
-    p->showRole();
+    p->showProfession();
     delete p;
 
-    Employee* emp;
-    emp=new Librarian("Pavlova Sofiia");
-    emp->showName();
-    emp->showProfession();
-    delete emp;
+    p = new Reader("Rozhman Damir",book3);
+    p->showName();
+    p->showBook();
+    delete p;
 
-    Reader* r;
-    r = new Reader("Rozhman Damir",book3);
-    r->showName();
+    p=new Reader("Hlavachuk Bohdan",book4);
+    p->showName();
+    p->showBook();
+    delete p;
+
+    p=new Employee("Pavlova");
+    p->showName();
+    p->showBook();
+    delete p;
+
 
     return 0;
 }

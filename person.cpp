@@ -15,12 +15,16 @@ Person& Person::operator=(const Person& other) {
     }
     return *this;
 }
-void Person::showRole() {
-    std::cout << "Person\n";
-}
 void Person::showName() {
-    std::cout << "Name: " << name << std::endl;
+    std::cout << "\nName: " << name;
 }
-void Person::inforead() {
-    std::cout << name << " is not reading a book.\n";
+void Person::showRole() {
+    std::cout << " is a person";
 }
+void Person::showProfession() {
+    std::cout << " is reader or employee";
+}
+void Person::showBook() {
+    std::cout << "No information about books";
+}
+Person::~Person() {}

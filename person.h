@@ -15,11 +15,12 @@ public:
     Person(std::string name);
     Person &operator=(const Person &other);
 
-    void showRole();
     void showName();
-    virtual void inforead();
+    void showRole();
+    virtual void showProfession();
+    virtual void showBook();
 
-    virtual ~Person() {};
+    virtual ~Person();
 };
 
 

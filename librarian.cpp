@@ -10,11 +10,7 @@ Librarian::Librarian(std::string name, int salary) : Employee(name,salary, 0), b
 Librarian::Librarian(std::string name, int salary, int work_days) : Employee(name,salary, work_days), books_managed(0) {}
 Librarian::Librarian(std::string name, int salary, int work_days, int books) :Employee(name, salary, work_days), books_managed(books) {}
 
-Librarian::~Librarian() {}
 
-void Librarian::showProfession(){
-    std::cout << "Librarian\n";
-}
 void Librarian::about_librarian() {
     std::cout << "Name: " << name << "\n"
               << "Salary: " << salary << "\n"
@@ -22,4 +18,7 @@ void Librarian::about_librarian() {
               << "Books managed: " << books_managed
               <<"\n-----------------------\n";
 }
-
+void Librarian::showProfession(){
+    std::cout << " is a librarian";
+}
+Librarian::~Librarian() {}
