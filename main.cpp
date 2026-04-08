@@ -109,13 +109,11 @@ int main() {
 
     cout<<endl;
     Reader a("Alice");
-    //Librarian l("Sofiia");
     Cleaner c("Ruslana");
     Employee e("Bogdan");
 
     dailyActivity(a);
     dailyActivity(c);
-    //dailyActivity(l);
 
     cout<<endl;
     Person &f =e;
