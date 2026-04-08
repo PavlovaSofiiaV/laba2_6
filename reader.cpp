@@ -53,9 +53,9 @@ void Reader::showReaderCount() {
 }
 
 
-// void Reader::showBase() {
-//     std::cout << "Reader\n";
-// }
+void Reader::showBase() {
+    std::cout << "Reader\n";
+}
 void Reader::showBook()  {
     std::cout<<" has: " << book.getTitle();
 }
@@ -64,6 +64,15 @@ void Reader::activity() {
 }
 void Reader::showRole() {
     std::cout<< "\nName: " << name << " is a reader";
+}
+void Reader::takeBook() {
+    std::cout<< "\nName: "  << name << " takes a book\n";
+}
+void Reader::returnBook() {
+    std::cout<< "\nName: "  << name << " returns a book\n";
+}
+void Reader::showStatus() {
+    std::cout << "\nName: " << name << " is an active reader\n";
 }
 Reader::~Reader() {
     reader_count--;

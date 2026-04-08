@@ -5,6 +5,7 @@
 #include "librarian.h"
 #include "person.h"
 #include "cleaner.h"
+#include "ILibraryUse.h"
 
 
 
@@ -87,7 +88,7 @@ int main() {
     Person* r;
     r = new Reader("Sofiia");
     r->showName();
-   // r->showBase();
+    r->showBase();
     delete r;
 
     Person* p;
@@ -128,6 +129,13 @@ int main() {
     p=new Librarian("Pavlova Sofiia");
     p->showRole();
     delete p;
+
+
+    ILibraryUse * u;
+    u = new Reader("Sofiia");
+    u->takeBook();
+    u->showStatus();
+    delete u;
 
 
     return 0;

@@ -7,8 +7,9 @@
 #include <string>
 #include "person.h"
 #include "book.h"
+#include "ILibraryUse.h"
 
-class Reader:public Person {
+class Reader:public Person, public ILibraryUse {
 private:
     std::string adrees;
     int number ;
@@ -31,10 +32,13 @@ public:
 
     void aboutreader();
     static void showReaderCount();
-    //void showBase();
+    void showBase();
     void showBook() override;
     void activity() override;
-    void showRole()override;
+    void showRole() override;
+    void takeBook()override;
+    void returnBook()override;
+    void showStatus()override;
 
    virtual ~Reader();
 };

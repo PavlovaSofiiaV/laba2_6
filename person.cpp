@@ -16,21 +16,21 @@ Person& Person::operator=(const Person& other) {
     return *this;
 }
 void Person::showName() {
-    //std::cout << "\nName: " << name;
+    std::cout << "\nName: " << name;
 }
-// void Person::showBase() {
-//     std::cout << " is a person\n";
-// }
+void Person::showBase() {
+     std::cout << " is a person\n";
+}
 void Person::showProfession() {
-    //std::cout << " is reader or employee";
+    std::cout << " is reader or employee";
 }
 void Person::showBook() {
-   // std::cout << "No information about books";
+    std::cout << "No information about books";
 }
 void Person::activity() {
-    //std::cout<<"\n" << name << " does something";
+    std::cout<<"\n" << name << " does something";
 }
 void Person::showRole() {
-   // std::cout << "\nName: " << name << std::endl;
+   std::cout << "\nName: " << name << std::endl;
 }
 Person::~Person() {}

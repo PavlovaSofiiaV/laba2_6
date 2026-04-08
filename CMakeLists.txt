@@ -15,4 +15,6 @@ add_executable(laba2_6 main.cpp
         librarian.h
         librarian.cpp
         cleaner.cpp
-        cleaner.h)
+        cleaner.h
+        ILibraryUse.cpp
+        ILibraryUse.h)
