@@ -57,7 +57,7 @@ void Reader::showBase() {
     std::cout << "Reader\n";
 }
 void Reader::showBook()  {
-    std::cout<<" has: " << book.getTitle();
+    std::cout<< "\nName: " << name<<" has: " << book.getTitle();
 }
 void Reader::activity() {
     std::cout<<"\n" << name << " reads a book";

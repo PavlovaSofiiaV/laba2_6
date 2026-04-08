@@ -87,28 +87,23 @@ int main() {
     cout<<"\n==========Laba 5============\n";
     Person* r;
     r = new Reader("Sofiia");
-    r->showName();
     r->showBase();
     delete r;
 
     Person* p;
     p=new Librarian("Pavlova Sofiia");
-    p->showName();
     p->showProfession();
     delete p;
 
     p = new Reader("Rozhman Damir",book3);
-    p->showName();
     p->showBook();
     delete p;
 
     p=new Reader("Hlavachuk Bohdan",book4);
-    p->showName();
     p->showBook();
     delete p;
 
     p=new Employee("Pavlova");
-    p->showName();
     p->showBook();
     delete p;
 

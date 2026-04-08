@@ -15,7 +15,6 @@ public:
     Person(std::string name);
     Person &operator=(const Person &other);
 
-    void showName();
     void showBase();
     virtual void showProfession();
     virtual void showBook();

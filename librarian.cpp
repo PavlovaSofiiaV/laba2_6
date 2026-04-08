@@ -19,7 +19,7 @@ void Librarian::about_librarian() {
               <<"\n-----------------------\n";
 }
 void Librarian::showProfession(){
-    std::cout << " is a librarian";
+    std::cout<< "\nName: " << name << " is a librarian";
 }
 void Librarian::activity()  {
     std::cout<<"\n" << name << " organizes books and helps readers";

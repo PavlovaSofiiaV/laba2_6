@@ -28,10 +28,10 @@ void Employee::showBase() {
     std::cout << "is an employee\n";
 }
 void Employee::showProfession() {
-    std::cout << " is employee";
+    std::cout<< "\nName: " << name << " is employee";
 }
 void Employee::showBook() {
-    std::cout << " has no book";
+    std::cout<< "\nName: " << name << " has no book";
 }
 void Employee::activity() {
     std::cout <<"\n"<<name << " works in the library";

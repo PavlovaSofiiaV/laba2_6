@@ -13,7 +13,7 @@ Cleaner::Cleaner(std::string name, int salary, int work_days) : Employee(name,sa
 Cleaner::Cleaner(std::string name, int salary, int work_days, int room) :Employee(name, salary, work_days), room_count(room) {}
 
 void Cleaner::showProfession() {
-    std::cout << "Cleaner\n";
+    std::cout<< "\nName: " << name << "ia a leaner\n";
 }
 void Cleaner::activity() {
     std::cout<<"\n" << name << " cleans the library";
