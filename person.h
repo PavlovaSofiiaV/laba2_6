@@ -10,9 +10,12 @@
 class Person {
     protected:
     std::string name;
+    std::string login;
+    std::string password;
 public:
     Person();
     Person(std::string name);
+    Person(std::string name,std::string login, std::string password);
     Person &operator=(const Person &other);
 
     void showBase();

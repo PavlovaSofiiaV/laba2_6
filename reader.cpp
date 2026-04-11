@@ -9,27 +9,27 @@ int Reader::reader_count = 0;
 Reader::Reader() :Person("None"), book("None"), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name): Person(name),book{"None"}, adrees{"None"}, number {0}, book_count {0} {
+Reader::Reader(std::string name,std::string login, std::string password): Person(name,login,password),book{"None"}, adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,Book b): Person(name),book(b), adrees{"None"}, number {0}, book_count {0} {
+Reader::Reader(std::string name,std::string login, std::string password,Book b): Person(name,login,password),book(b), adrees{"None"}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees,Book b): Person(name),book(b),adrees{new_adrees}, number {0}, book_count {0} {
+Reader::Reader(std::string name,std::string login, std::string password,std::string new_adrees,Book b): Person(name,login,password),book(b),adrees{new_adrees}, number {0}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees, int new_number,Book b):Person(name),book(b), adrees{new_adrees}, number {new_number}, book_count {0} {
+Reader::Reader(std::string name,std::string login, std::string password,std::string new_adrees, int new_number,Book b):Person(name,login,password),book(b), adrees{new_adrees}, number {new_number}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string new_adrees, int new_number, int new_book_count,Book b):Person(name),book(b), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
+Reader::Reader(std::string name,std::string login, std::string password,std::string new_adrees, int new_number, int new_book_count,Book b):Person(name,login,password),book(b), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
     reader_count++;
 }
-Reader::Reader(Reader&& other):Person(std::move(other)),book(std::move(other.book)), adrees(std::move(other.adrees)), number (other.number), book_count (other.book_count) {
-    reader_count++;
-}//Move constructor
-Reader::Reader(Reader& other):Person(other), book(other.book), adrees(other.adrees), number(other.number),book_count(other.book_count) {
-    reader_count++;
-}//copy constructor
+// Reader::Reader(Reader&& other):Person(std::move(other)),book(std::move(other.book)), adrees(std::move(other.adrees)), number (other.number), book_count (other.book_count) {
+//     reader_count++;
+// }//Move constructor
+// Reader::Reader(Reader& other):Person(other), book(other.book), adrees(other.adrees), number(other.number),book_count(other.book_count) {
+//     reader_count++;
+// }//copy constructor
 Reader& Reader::operator=(const Reader& other) {
     if (this != &other) {
         Person::operator=(other);

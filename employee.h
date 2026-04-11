@@ -13,10 +13,10 @@ protected:
     int salary;
 public:
     Employee();
-    Employee(std::string name);
-    Employee(std::string name, int salary);
-    Employee(std::string name, int salary, int work_days);
-    Employee(int salary, int work_days);
+    Employee(std::string name,std::string login, std::string password);
+    Employee(std::string name, int salary,std::string login, std::string password);
+    Employee(std::string name, int salary, int work_days,std::string login, std::string password);
+    Employee(int salary, int work_days,std::string login, std::string password);
     void showBase();
     void showProfession ()override;
     void showBook() final;
@@ -24,6 +24,6 @@ public:
     void showRole()override;
     virtual ~Employee();
 
-    //void about_employee();
+    void about_employee();
 };
 #endif //LABA2_6_EMPLOYEE_H

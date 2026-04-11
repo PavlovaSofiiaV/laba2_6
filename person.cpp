@@ -7,7 +7,12 @@ Person::Person() {
     name="None";
 }
 Person::Person(std::string name) {
+    this->name = name;
+}
+Person::Person(std::string name,std::string login, std::string password) {
     this -> name = name;
+    this -> login = login;
+    this -> password = password;
 }
 Person& Person::operator=(const Person& other) {
     if (this != &other) {
