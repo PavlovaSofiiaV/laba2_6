@@ -14,14 +14,17 @@ protected:
 public:
     Employee();
     Employee(std::string name,std::string login, std::string password);
-    Employee(std::string name, int salary,std::string login, std::string password);
-    Employee(std::string name, int salary, int work_days,std::string login, std::string password);
-    Employee(int salary, int work_days,std::string login, std::string password);
+    Employee(std::string name,std::string login, std::string password, int salary);
+    Employee(std::string name,std::string login, std::string password, int salary, int work_days);
+    Employee(std::string login, std::string password,int salary, int work_days);
     void showBase();
     void showProfession ()override;
     void showBook() final;
     void activity() override;
     void showRole()override;
+
+    bool checkIn( std::string& l,  std::string& p)  override;
+
     virtual ~Employee();
 
     void about_employee();

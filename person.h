@@ -25,6 +25,8 @@ public:
     virtual void showRole()=0;
 
 
+    virtual bool checkIn( std::string& l,  std::string& p)  = 0;
+
     virtual ~Person();
 };
 

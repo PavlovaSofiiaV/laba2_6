@@ -11,10 +11,10 @@ private:
     int books_managed;
 public:
     Librarian();
-    Librarian(std::string name);
-    Librarian(std::string name, int salary);
-    Librarian(std::string name, int salary, int work_days);
-    Librarian(std::string name, int salary, int work_days, int books);
+    Librarian(std::string name,std::string login, std::string password);
+    Librarian(std::string name,std::string login, std::string password,int salary);
+    Librarian(std::string name,std::string login, std::string password, int salary, int work_days);
+    Librarian(std::string name,std::string login, std::string password, int salary, int work_days, int books);
     void about_librarian();
     void activity() override;
     void showProfession ()override;

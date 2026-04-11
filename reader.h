@@ -40,6 +40,9 @@ public:
     void returnBook()override;
     void showStatus()override;
 
+    bool checkIn( std::string& l,  std::string& p)  override;
+
+
    virtual ~Reader();
 };
 #endif //LABA2_6_READER_H

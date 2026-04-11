@@ -74,6 +74,11 @@ void Reader::returnBook() {
 void Reader::showStatus() {
     std::cout << "\nName: " << name << " is an active reader\n";
 }
+
+bool Reader::checkIn( std::string& l,  std::string& p)  {
+    return login == l && password == p;
+}
+
 Reader::~Reader() {
     reader_count--;
 }

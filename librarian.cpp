@@ -4,11 +4,11 @@
 #include "librarian.h"
 #include <iostream>
 
-Librarian::Librarian() : Employee("None",0,0,login,password), books_managed(0) {}
-Librarian::Librarian(std::string name) : Employee(name,0, 0,login,password), books_managed(0) {}
-Librarian::Librarian(std::string name, int salary) : Employee(name,salary, 0,login, password), books_managed(0) {}
-Librarian::Librarian(std::string name, int salary, int work_days) : Employee(name,salary, work_days,login, password), books_managed(0) {}
-Librarian::Librarian(std::string name, int salary, int work_days, int books) :Employee(name, salary, work_days,login, password), books_managed(books) {}
+Librarian::Librarian() : Employee("None",login,password,0,0), books_managed(0) {}
+Librarian::Librarian(std::string name,std::string login, std::string password) : Employee(name,login, password,0,0), books_managed(0) {}
+Librarian::Librarian(std::string name,std::string login, std::string password, int salary) : Employee(name,login, password, salary, 0), books_managed(0) {}
+Librarian::Librarian(std::string name,std::string login, std::string password, int salary, int work_days) : Employee(name,login, password,salary, work_days), books_managed(0) {}
+Librarian::Librarian(std::string name, std::string login, std::string password,int salary, int work_days, int books) :Employee(name, login, password,salary, work_days), books_managed(books) {}
 
 
 void Librarian::about_librarian() {

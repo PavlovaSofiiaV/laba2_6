@@ -6,6 +6,7 @@
 #include "person.h"
 #include "cleaner.h"
 #include "ILibraryUse.h"
+#include <vector>
 
 
 
@@ -66,15 +67,15 @@ int main() {
 
     //cout<<endl;
     //cout<<"\n==========About Emploee============\n";
-    Employee employee1;
-    Employee employee2("Pavlova Sofiia","sofa.pavlova","sofiia123");
-    Employee employee3("Shyshko Ruslana",1000000,"ruslana","ruslana345");
-    Employee employee4("Rozhman Damir",16780,30, "damir.rozhman","damir345");
-    Employee employee5(18900, 18,"neznay","1234parol");
+    // Employee employee1;
+    // Employee employee2("Pavlova Sofiia","sofa.pavlova","sofiia123");
+    // Employee employee3("Shyshko Ruslana",1000000,"ruslana","ruslana345");
+    // Employee employee4("Rozhman Damir",16780,30, "damir.rozhman","damir345");
+    // Employee employee5(18900, 18,"neznay","1234parol");
 
     // employee1.about_employee();
-    employee2.about_employee();
-    employee3.about_employee();
+    // employee2.about_employee();
+    // employee3.about_employee();
     // employee4.about_employee();
     // employee5.about_employee();
 
@@ -144,5 +145,27 @@ int main() {
     //     // }
     // } while(choice != 0);
 
+    vector<Person*> people;
+
+    people.push_back(new Librarian("Sofiia","sofavpavlova","sof131313"));
+    string l, p;
+    cout << "Login: ";
+    cin >> l;
+    cout << "Password: ";
+    cin >> p;
+    bool found = false;
+
+    for (Person* person : people) {
+        if (person->checkIn(l, p)) {
+            cout << "\nACCESS GRANTED\n";
+            person->showRole();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "\nWrong login or password\n";
+    }
     return 0;
 }

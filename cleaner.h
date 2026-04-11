@@ -11,11 +11,11 @@ class Cleaner:public Employee{
     int room_count;
     public:
     Cleaner();
-    Cleaner(std::string name);
-    Cleaner(std::string name, int salary);
-    Cleaner(std::string name, int salary, int work_days);
-    Cleaner(std::string name, int salary, int work_days, int books);
-    Cleaner(std::string name, int salary, int work_days, int books, int room);
+    Cleaner(std::string name,std::string login, std::string password);
+    Cleaner(std::string name,std::string login, std::string password, int salary);
+    Cleaner(std::string name,std::string login, std::string password, int salary, int work_days);
+    Cleaner(std::string name,std::string login, std::string password, int salary, int work_days, int books);
+    Cleaner(std::string name,std::string login, std::string password, int salary, int work_days, int books, int room);
 
     void showProfession() override;
     void activity() override;

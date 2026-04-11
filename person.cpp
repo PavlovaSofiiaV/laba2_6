@@ -35,4 +35,8 @@ void Person::activity() {
 void Person::showRole() {
    std::cout << "\nName: " << name << std::endl;
 }
+bool Person::checkIn( std::string& l,  std::string& p)  {
+    return (login == l && password == p);
+}
+
 Person::~Person() {}
