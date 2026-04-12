@@ -10,21 +10,16 @@ Librarian::Librarian(std::string name,std::string login, std::string password, i
 Librarian::Librarian(std::string name,std::string login, std::string password, int salary, int work_days) : Employee(name,login, password,salary, work_days), books_managed(0) {}
 Librarian::Librarian(std::string name, std::string login, std::string password,int salary, int work_days, int books) :Employee(name, login, password,salary, work_days), books_managed(books) {}
 
-
-void Librarian::about_librarian() {
-    std::cout << "Name: " << name << "\n"
-              << "Salary: " << salary << "\n"
-              << "Work days: " << work_days << "\n"
-              << "Books managed: " << books_managed
-              <<"\n-----------------------\n";
-}
-void Librarian::showProfession(){
-    std::cout<< "\nName: " << name << " is a librarian";
-}
-void Librarian::activity()  {
-    std::cout<<"\n" << name << " organizes books and helps readers";
-}
 void Librarian::showRole() {
-    std::cout<< "\nName: " << name<<" is a librarian";
+    std::cout<<name<<" is a librarian\n";
+}
+void Librarian::showInfo() {
+    std::cout << "Salary: " << salary << "\n"
+          << "Work days: " << work_days << "\n"
+          << "Books managed: " << books_managed
+          <<"\n-----------------------\n";
+}
+std::string Librarian::getRol() {
+    return"admin";
 }
 Librarian::~Librarian() {}

@@ -23,31 +23,22 @@ Employee::Employee( std::string login, std::string password,int salary, int work
     this->salary=salary;
     this->work_days=work_days;
 }
-void Employee::showBase() {
-    std::cout << "is an employee\n";
-}
-void Employee::showProfession() {
-    std::cout<< "\nName: " << name << " is employee";
-}
+
 void Employee::showBook() {
     std::cout<< "\nName: " << name << " has no book";
 }
-void Employee::activity() {
-    std::cout <<"\n"<<name << " works in the library";
-}
 void Employee::showRole() {
-    std::cout<< "\nName: " << name << " is employee";
+    std::cout<< name << " is employee\n";
 }
 bool Employee::checkIn( std::string& l,  std::string& p)  {
     return login == l && password == p;
 }
-
-Employee::~Employee(){}
-void Employee::about_employee() {
-    std::cout << "Name: " << name << "\n"
-              << "Salary: " << salary << "\n"
-              << "Work days: " << work_days<<"\n"
-              << "Login name: " << login << "\n"
-              << "Parol: " << password
+void Employee::showInfo() {
+    std::cout << "Salary: " << salary << "\n"
+              << "Work days: " << work_days
               <<"\n-----------------------\n";
 }
+std::string Employee::getRol() {
+    return"admin";
+}
+Employee::~Employee(){}

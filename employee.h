@@ -17,16 +17,14 @@ public:
     Employee(std::string name,std::string login, std::string password, int salary);
     Employee(std::string name,std::string login, std::string password, int salary, int work_days);
     Employee(std::string login, std::string password,int salary, int work_days);
-    void showBase();
-    void showProfession ()override;
-    void showBook() final;
-    void activity() override;
-    void showRole()override;
 
+    void showBook() final;
+    void showRole()override;
+    void showInfo() override;
     bool checkIn( std::string& l,  std::string& p)  override;
+    std::string getRol()override;
+
 
     virtual ~Employee();
-
-    void about_employee();
 };
 #endif //LABA2_6_EMPLOYEE_H

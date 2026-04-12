@@ -7,13 +7,71 @@
 #include "cleaner.h"
 #include "ILibraryUse.h"
 #include <vector>
-
+#include <memory>
 
 
 using namespace std;
-// void dailyActivity(Person& p) {
-//     p.activity();
-// }
+void addBook(vector<Book>& books) {
+    string title, author;
+    int year, pages;
+
+    cin.ignore(); // важливо!
+
+    cout << "Enter title: ";
+    getline(cin, title);
+
+    cout << "Enter author: ";
+    getline(cin, author);
+
+    cout << "Enter year: ";
+    cin >> year;
+
+    cout << "Enter pages: ";
+    cin >> pages;
+
+    books.push_back(Book(title, author, year, pages));
+
+    cout << "Book added successfully!\n";
+}
+void showBooks(const vector<Book>& books) {
+    if (books.empty()) {
+        cout << "No books available\n";
+        return;
+    }
+
+    for (const auto& b : books) {
+        cout << b;
+    }
+}
+void adminMenu(vector<Book>& books) {
+    int adminChoice;
+    do {
+        cout << "\nAdmin Menu:\n";
+        cout << "1. Add Book\n";
+        cout << "2. View Books\n";
+        cout << "0. Logout\n";
+        cout << "Enter your choice: ";
+        cin >> adminChoice;
+
+        switch (adminChoice) {
+            case 1:
+                cout << "Add a new book functionality\n";
+                addBook(books);
+                break;
+            case 2:
+                cout << "View books functionality\n";
+                showBooks(books);
+                break;
+            case 0:
+                cout << "Logging out...\n";
+                break;
+            default:
+                cout << "Invalid choice, try again.\n";
+        }
+
+    } while (adminChoice != 0);
+}
+
 int main() {
     Book book0;
     Book book1;
@@ -24,148 +82,67 @@ int main() {
     Book book6=book3;
     const Book book7("The Inheritance Games");
 
+    vector<unique_ptr<Person>> people;
+    people.push_back(make_unique<Librarian>("Sofiia","sofavpavlova","sof131313",25000,25,250));
+    people.push_back(make_unique<Reader>("Ruslana","ruslana.shysko"));
+    people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56,book3));
+    vector<Book> books;
+    int choice;
+    while (true) {
+        cout << "\n1. Admin\n";
+        cout << "2. User\n";
+        cout << "0. Exit\n";
+        cin >> choice;
 
-   // cin>>book0;
-
-    // cout<<"==========About books==========";
-    // Book::showBookCount();
-    // cout<<endl;
-    // cout<<book0;
-    // book1.aboutbook();
-    // book2.aboutbook();
-    // book3.aboutbook();
-    // book4.aboutbook();
-    // book5.aboutbook();
-    // book6.aboutbook();
-    // book7.aboutbook();
-    //
-    // cout<<"\nEquals books:";
-    // if (book3==book4) {
-    //     cout<<"\nBook 3 equals Book 4\n";
-    // }
-    //
-    // cout<<endl;
-    // cout<<"\n==========About Reader==========\n";
-    // Reader reader1;
-    // Reader reader2("Pavlova Sofiia",book0);
-    // Reader reader3("Shyshko Ruslana","Nebesnoi Sotni 4v",book1);
-    // Reader reader4("Rozhman Damir", "Nebesnoi Sotni 2",145,book3);
-    // Reader reader5("Hlavachuk Bohdan", "Heroes of the Maidan",43,5,book4);
-    // Reader reader6=Reader("Frayk Oleg", book5);
-    // Reader reader7;
-    // reader7=reader6;
-    // Reader::showReaderCount();
-    // cout<<endl;
-    //
-    // reader1.aboutreader();
-    // reader2.aboutreader();
-    // reader3.aboutreader();
-    // reader4.aboutreader();
-    // reader5.aboutreader();
-    // reader6.aboutreader();
-    // reader7.aboutreader();
-
-    //cout<<endl;
-    //cout<<"\n==========About Emploee============\n";
-    // Employee employee1;
-    // Employee employee2("Pavlova Sofiia","sofa.pavlova","sofiia123");
-    // Employee employee3("Shyshko Ruslana",1000000,"ruslana","ruslana345");
-    // Employee employee4("Rozhman Damir",16780,30, "damir.rozhman","damir345");
-    // Employee employee5(18900, 18,"neznay","1234parol");
-
-    // employee1.about_employee();
-    // employee2.about_employee();
-    // employee3.about_employee();
-    // employee4.about_employee();
-    // employee5.about_employee();
-
-    // cout<<endl;
-    // cout<<"\n==========About Librarian============\n";
-    // Librarian lib1("Ruslana", 250000, 20, 150);
-    // lib1.about_librarian();
-    //
-    // cout<<endl;
-    // cout<<"\n==========Laba 5============\n";
-    // Person* r;
-    // r = new Reader("Sofiia");
-    // r->showBase();
-    // delete r;
-    //
-    // Person* p;
-    // p=new Librarian("Pavlova Sofiia");
-    // p->showProfession();
-    // delete p;
-    //
-    // p = new Reader("Rozhman Damir",book3);
-    // p->showBook();
-    // delete p;
-    //
-    // p=new Reader("Hlavachuk Bohdan",book4);
-    // p->showBook();
-    // delete p;
-    //
-    // p=new Employee("Pavlova");
-    // p->showBook();
-    // delete p;
-    //
-    // cout<<endl;
-    // Reader a("Alice");
-    // Cleaner c("Ruslana");
-    // Employee e("Bogdan");
-    //
-    // dailyActivity(a);
-    // dailyActivity(c);
-    //
-    // cout<<endl;
-    // Person &f =e;
-    // f.showRole();
-    //
-    // p=new Librarian("Pavlova Sofiia");
-    // p->showRole();
-    // delete p;
-    //
-    //
-    // ILibraryUse * u;
-    // u = new Reader("Sofiia");
-    // u->takeBook();
-    // u->showStatus();
-    // delete u;
-
-
-    // int choice;
-    // do {
-    //     cout << "\n1. Admin\n";
-    //     cout << "2. User\n";
-    //     cout << "0. Exit\n";
-    //     cin >> choice;
-    //
-    //     // switch(choice) {
-    //     //     case 1: adminMenu(); break;
-    //     //     case 2: userMenu(); break;
-    //     // }
-    // } while(choice != 0);
-
-    vector<Person*> people;
-
-    people.push_back(new Librarian("Sofiia","sofavpavlova","sof131313"));
-    string l, p;
-    cout << "Login: ";
-    cin >> l;
-    cout << "Password: ";
-    cin >> p;
-    bool found = false;
-
-    for (Person* person : people) {
-        if (person->checkIn(l, p)) {
-            cout << "\nACCESS GRANTED\n";
-            person->showRole();
-            found = true;
-            break;
+        switch(choice) {
+            case 1:{
+                string l, p;
+                bool found = false;
+                cout << "Login: ";
+                cin >> l;
+                cout << "Password: ";
+                cin >> p;
+                for (auto &person : people) {
+                    if (person->getRol()=="admin" && person->checkIn(l, p)) {
+                        cout << "ACCESS GRANTED\n";
+                        adminMenu(books);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    cout << "\nWrong login or password\n";
+                }
+            }
+                break;
+            case 2:{
+                string log,par;
+                cout << "Login: ";
+                cin >> log;
+                bool found2 = false;
+                for (auto &person : people) {
+                    if (person->getRol()=="user" &&person->checkIn(log,par)) {
+                        cout << "\nACCESS GRANTED\n";
+                        person->showRole();
+                        person->showInfo();
+                        found2 = true;
+                        break;
+                    }
+                }
+                if (!found2) {
+                    cout << "\nWrong login\n";
+                }
+                break;
+            }
+            case 0: {
+                cout << "Exiting program...\n";
+                break;
+            }
+            default: {
+                cout << "Invalid choice, please try again.\n";
+                break;
+            }
         }
     }
-
-    if (!found) {
-        cout << "\nWrong login or password\n";
-    }
-    return 0;
 }
+

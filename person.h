@@ -18,15 +18,11 @@ public:
     Person(std::string name,std::string login, std::string password);
     Person &operator=(const Person &other);
 
-    void showBase();
-    virtual void showProfession();
     virtual void showBook();
-    virtual void activity();
     virtual void showRole()=0;
-
-
+    virtual void showInfo() = 0;
     virtual bool checkIn( std::string& l,  std::string& p)  = 0;
-
+    virtual std::string getRol()=0;
     virtual ~Person();
 };
 

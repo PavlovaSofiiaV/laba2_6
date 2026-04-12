@@ -12,35 +12,31 @@
 class Reader:public Person, public ILibraryUse {
 private:
     std::string adrees;
-    int number ;
+    std::string number ;
     int book_count;
     static int reader_count;
     Book book;
 public:
 
     Reader();
-    Reader(std::string name,std::string login, std::string password);
-    Reader(std::string name,std::string login, std::string password, Book b);
-    Reader(std::string name,std::string login, std::string password, std::string new_adrees, Book b);
-    Reader(std::string name,std::string login, std::string password, std::string new_adrees, int new_number, Book b);
-    Reader(std::string name,std::string login, std::string password, std::string new_adrees, int new_number, int new_book_count, Book b);
-
-    Reader(Reader&& other);//Move constructor
-    Reader(Reader& other);
+    Reader(std::string name,std::string login);
+    Reader(std::string name,std::string login, Book b);
+    Reader(std::string name,std::string login, std::string new_adrees, Book b);
+    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, Book b);
+    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, int new_book_count, Book b);
 
     Reader &operator=(const Reader &other);
 
-    void aboutreader();
     static void showReaderCount();
-    void showBase();
     void showBook() override;
-    void activity() override;
     void showRole() override;
     void takeBook()override;
     void returnBook()override;
     void showStatus()override;
 
+    void showInfo() override;
     bool checkIn( std::string& l,  std::string& p)  override;
+    std::string getRol()override;
 
 
    virtual ~Reader();

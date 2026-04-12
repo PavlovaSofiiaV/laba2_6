@@ -20,17 +20,9 @@ Person& Person::operator=(const Person& other) {
     }
     return *this;
 }
-void Person::showBase() {
-     std::cout<< "\nName: " << name<< " is a person\n";
-}
-void Person::showProfession() {
-    std::cout<< "\nName: " << name << " is reader or employee";
-}
+
 void Person::showBook() {
     std::cout << "No information about books";
-}
-void Person::activity() {
-    std::cout<<"\n" << name << " does something";
 }
 void Person::showRole() {
    std::cout << "\nName: " << name << std::endl;
@@ -38,5 +30,7 @@ void Person::showRole() {
 bool Person::checkIn( std::string& l,  std::string& p)  {
     return (login == l && password == p);
 }
+void Person::showInfo() {}
+std::string Person::getRol() { return " "; }
 
 Person::~Person() {}

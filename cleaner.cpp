@@ -12,16 +12,19 @@ Cleaner::Cleaner(std::string name,std::string login, std::string password, int s
 Cleaner::Cleaner(std::string name,std::string login, std::string password, int salary, int work_days) : Employee(name,login, password,salary, work_days), room_count(0) {}
 Cleaner::Cleaner(std::string name,std::string login, std::string password, int salary, int work_days, int room) :Employee(name,login, password,salary, work_days), room_count(room) {}
 
-void Cleaner::showProfession() {
-    std::cout<< "\nName: " << name << "ia a leaner\n";
-}
-void Cleaner::activity() {
-    std::cout<<"\n" << name << " cleans the library";
-}
-void Cleaner::showRole() {
-    std::cout<< "\nName: " << name<<" is a cleaner";
-}
 
+void Cleaner::showRole() {
+    std::cout<<name<<" is a cleaner\n";
+}
+void Cleaner::showInfo() {
+    std::cout << "Salary: " << salary << "\n"
+          << "Work days: " << work_days << "\n"
+          << "Number of rooms: " << room_count
+          <<"\n-----------------------\n";
+}
+std::string Cleaner::getRol() {
+    return"admin";
+}
 Cleaner::~Cleaner() {
 
 }

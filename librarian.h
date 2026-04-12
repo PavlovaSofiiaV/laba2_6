@@ -15,11 +15,12 @@ public:
     Librarian(std::string name,std::string login, std::string password,int salary);
     Librarian(std::string name,std::string login, std::string password, int salary, int work_days);
     Librarian(std::string name,std::string login, std::string password, int salary, int work_days, int books);
-    void about_librarian();
-    void activity() override;
-    void showProfession ()override;
+
     void showRole() override;
+    void showInfo() override;
+    std::string getRol()override;
     virtual ~Librarian();
+
 };
 
 #endif //LABA2_6_LIBRARIAN_H
