@@ -23,6 +23,8 @@ public:
     virtual void showInfo() = 0;
     virtual bool checkIn( std::string& l,  std::string& p)  = 0;
     virtual std::string getRol()=0;
+    //friend std::ostream& operator<<(std::ostream& out, const Person& p);
+    virtual void save(std::ostream& os) const;
     virtual ~Person();
 };
 

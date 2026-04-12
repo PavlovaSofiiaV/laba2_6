@@ -32,7 +32,7 @@ std::ostream& operator<<(std::ostream& os, const Book& b) {
     os << "\nTitle: " << b.title << "\n"
         << "Author: " << b.author << "\n"
         << "Year: " << b.year << "\n"
-        << "Pages: " << b.pages
+        << "Pages: " << b.pages<<"\n"
         <<"\n-----------------------";
     return os;
 }

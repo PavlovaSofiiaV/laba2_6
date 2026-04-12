@@ -20,10 +20,9 @@ public:
 
     Reader();
     Reader(std::string name,std::string login);
-    Reader(std::string name,std::string login, Book b);
-    Reader(std::string name,std::string login, std::string new_adrees, Book b);
-    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, Book b);
-    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, int new_book_count, Book b);
+    Reader(std::string name,std::string login, std::string new_adrees);
+    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number);
+    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, int new_book_count);
 
     Reader &operator=(const Reader &other);
 
@@ -37,6 +36,8 @@ public:
     void showInfo() override;
     bool checkIn( std::string& l,  std::string& p)  override;
     std::string getRol()override;
+    void save(std::ostream& os)const override;
+    //friend std::ostream& operator<<(std::ostream& out, const Reader& r);
 
 
    virtual ~Reader();

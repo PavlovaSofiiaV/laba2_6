@@ -33,4 +33,12 @@ bool Person::checkIn( std::string& l,  std::string& p)  {
 void Person::showInfo() {}
 std::string Person::getRol() { return " "; }
 
+void Person::save(std::ostream &os) const {
+}
+
 Person::~Person() {}
+
+// std::ostream& operator<<(std::ostream& os, const Person& p) {
+//     os << "Name: " << p.name << ", Login: " << p.login;
+//     return os;
+// }

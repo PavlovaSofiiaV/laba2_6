@@ -8,14 +8,37 @@
 #include "ILibraryUse.h"
 #include <vector>
 #include <memory>
-
+#include <fstream>
 
 using namespace std;
+void addReader(vector<unique_ptr<Person>>& people) {
+    string name, login, adress, number;
+    int book;
+    cin.ignore();
+    cout << "Enter name: ";
+    getline(cin, name);
+    cout << "Enter login: ";
+    getline(cin, login);
+    cout << "Enter adress: ";
+    getline(cin, adress);
+    cout << "Enter number: ";
+    getline(cin, number);
+    cout << "Enter amount of books : ";
+    cin >> book;
+    people.push_back(make_unique<Reader>(name, login,adress,number,book));
+    cout << "Reader added!\n";
+}
+void saveReaders(const vector<unique_ptr<Person>>& people) {
+    ofstream file("readers.txt");
+    for (const auto& p : people) {
+        p->save(file);
+    }
+}
 void addBook(vector<Book>& books) {
     string title, author;
     int year, pages;
 
-    cin.ignore(); // важливо!
+    cin.ignore();
 
     cout << "Enter title: ";
     getline(cin, title);
@@ -30,37 +53,76 @@ void addBook(vector<Book>& books) {
     cin >> pages;
 
     books.push_back(Book(title, author, year, pages));
-
     cout << "Book added successfully!\n";
 }
-void showBooks(const vector<Book>& books) {
-    if (books.empty()) {
-        cout << "No books available\n";
-        return;
-    }
-
+void saveBooksToFile(const vector<Book>& books) {
+    ofstream file("books.txt");
     for (const auto& b : books) {
-        cout << b;
+        file << b << "\n";
     }
 }
-void adminMenu(vector<Book>& books) {
+vector<Book> loadBooksFromFile() {
+    vector<Book> books;
+    ifstream file("books.txt");
+
+    string title, author;
+    int year, pages;
+
+    while (getline(file, title, ';')) {
+        getline(file, author, ';');
+        file >> year;
+        file.ignore();
+        file >> pages;
+        file.ignore();
+
+        books.push_back(Book(title, author, year, pages));
+    }
+
+    file.close();
+    return books;
+}
+void clearBooksFile(vector<Book>& books) {
+    ofstream file("books.txt", ios::trunc);
+    file.close();
+    books.clear();
+    cout << "File cleared successfully!\n";
+}
+// void showBooks(const vector<Book>& books) {
+//     if (books.empty()) {
+//         cout << "No books available\n";
+//         return;
+//     }
+//
+//     for (const auto& b : books) {
+//         cout << b;
+//     }
+// }
+void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
     int adminChoice;
     do {
         cout << "\nAdmin Menu:\n";
         cout << "1. Add Book\n";
         cout << "2. View Books\n";
+        cout << "3. Delete book\n";
+        cout << "4. Add reader \n";
         cout << "0. Logout\n";
         cout << "Enter your choice: ";
         cin >> adminChoice;
 
         switch (adminChoice) {
             case 1:
-                cout << "Add a new book functionality\n";
                 addBook(books);
+                saveBooksToFile(books);
                 break;
             case 2:
-                cout << "View books functionality\n";
-                showBooks(books);
+               // showBooks(books);
+                break;
+            case 3:
+                clearBooksFile(books);
+                break;
+            case 4:
+                addReader(people);
+                saveReaders(people);
                 break;
             case 0:
                 cout << "Logging out...\n";
@@ -73,20 +135,13 @@ void adminMenu(vector<Book>& books) {
 }
 
 int main() {
-    Book book0;
-    Book book1;
-    Book book2("The Inheritance Games");
-    Book book3("Hellp", "Jennifer Lynn Barnes");
-    Book book4("The Inheritance Games", "Jennifer Lynn Barnes", 2020);
-    Book book5("The Inheritance Games", "Jennifer Lynn Barnes", 2020, 384);
-    Book book6=book3;
-    const Book book7("The Inheritance Games");
 
     vector<unique_ptr<Person>> people;
-    people.push_back(make_unique<Librarian>("Sofiia","sofavpavlova","sof131313",25000,25,250));
+    people.push_back(make_unique<Librarian>("Sofiia","sofa","13",25000,25,250));
     people.push_back(make_unique<Reader>("Ruslana","ruslana.shysko"));
-    people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56,book3));
-    vector<Book> books;
+    people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56));
+
+    vector<Book> books = loadBooksFromFile();
     int choice;
     while (true) {
         cout << "\n1. Admin\n";
@@ -105,7 +160,9 @@ int main() {
                 for (auto &person : people) {
                     if (person->getRol()=="admin" && person->checkIn(l, p)) {
                         cout << "ACCESS GRANTED\n";
-                        adminMenu(books);
+                        person->showRole();
+                        person->showInfo();
+                        adminMenu(books,people);
                         found = true;
                         break;
                     }

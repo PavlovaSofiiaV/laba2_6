@@ -12,16 +12,13 @@ Reader::Reader() :Person("None"), book("None"), adrees{"None"}, number {"None"},
 Reader::Reader(std::string name,std::string login): Person(name,login,password),book{"None"}, adrees{"None"}, number {"None"}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string login,Book b): Person(name,login,password),book(b), adrees{"None"}, number {"None"}, book_count {0} {
+Reader::Reader(std::string name,std::string login,std::string new_adrees): Person(name,login,password),adrees{new_adrees}, number {"None"}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string login,std::string new_adrees,Book b): Person(name,login,password),book(b),adrees{new_adrees}, number {"None"}, book_count {0} {
+Reader::Reader(std::string name,std::string login,std::string new_adrees,  std::string new_number):Person(name,login,password), adrees{new_adrees}, number {new_number}, book_count {0} {
     reader_count++;
 }
-Reader::Reader(std::string name,std::string login,std::string new_adrees,  std::string new_number,Book b):Person(name,login,password),book(b), adrees{new_adrees}, number {new_number}, book_count {0} {
-    reader_count++;
-}
-Reader::Reader(std::string name,std::string login,std::string new_adrees,  std::string new_number, int new_book_count,Book b):Person(name,login,password),book(b), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
+Reader::Reader(std::string name,std::string login,std::string new_adrees,  std::string new_number, int new_book_count):Person(name,login,password), adrees{new_adrees}, number {new_number}, book_count {new_book_count} {
     reader_count++;
 }
 Reader& Reader::operator=(const Reader& other) {
@@ -65,6 +62,21 @@ void Reader::showInfo() {
 }
 std::string Reader::getRol() {
     return "user";
+}
+// std::ostream& operator<<(std::ostream& os, const Reader& r) {
+//     os << "\nName: " << r.name << "\n"
+//         << "Adress: " << r.adrees << "\n"
+//         << "Phone number: " << r.number << "\n"
+//         << "Amount of books: " << r.book_count<<"\n"
+//         <<"\n-----------------------";
+//     return os;
+// }
+void Reader::save(std::ostream& os) const {
+    os<< "\nName: " << name << "\n"
+         << "Adress: " << adrees << "\n"
+         << "Phone number: " << number << "\n"
+         << "Amount of books: " << book_count<<"\n"
+         <<"\n-----------------------";
 }
 
 Reader::~Reader() {
