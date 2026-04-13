@@ -36,6 +36,8 @@ public:
     void showInfo() override;
     bool checkIn( std::string& l,  std::string& p)  override;
     std::string getRol()override;
+    std::string getLogin();
+    void countBook();
     void save(std::ostream& os)const override;
     //friend std::ostream& operator<<(std::ostream& out, const Reader& r);
 

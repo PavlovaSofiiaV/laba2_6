@@ -95,6 +95,41 @@ void clearBooksFile(vector<Book>& books) {
     books.clear();
     cout << "File cleared successfully!\n";
 }
+void giveBook(vector<Book>& books) {
+    string title, login;
+    cin.ignore();
+    cout << "Enter reader login: ";
+    getline(cin, login);
+    cout << "Enter book title: ";
+    getline(cin, title);
+
+    // 1. перевірка книги
+    bool found = false;
+
+    for (const auto& b : books) {
+        if (b.getTitle() == title) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Book not found!\n";
+        return;
+    }
+
+    // 2. запис в історію
+    ofstream file("history.txt", ios::app);
+
+    if (!file.is_open()) {
+        cout << "Error opening file!\n";
+        return;
+    }
+
+    file << login << "|" << title << "|\n";
+
+    cout << "Book successfully issued!\n";
+}
 
 void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
     int adminChoice;
@@ -103,6 +138,7 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
         cout << "1. Add Book\n";
         cout << "2. Delete book\n";
         cout << "3. Add reader \n";
+        cout << "4. Give a Book \n";
         cout << "0. Logout\n";
         cout << "Enter your choice: ";
         cin >> adminChoice;
@@ -116,6 +152,9 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
                 break;
             case 3:
                 addReader(people);
+                break;
+            case 4:
+                giveBook(books);
                 break;
             case 0:
                 cout << "Logging out...\n";

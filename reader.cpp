@@ -63,6 +63,12 @@ void Reader::showInfo() {
 std::string Reader::getRol() {
     return "user";
 }
+std::string Reader::getLogin() {
+    return login;
+}
+void Reader::countBook() {
+    book_count++;
+}
 // std::ostream& operator<<(std::ostream& os, const Reader& r) {
 //     os << "\nName: " << r.name << "\n"
 //         << "Adress: " << r.adrees << "\n"
