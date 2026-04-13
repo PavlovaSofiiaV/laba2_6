@@ -4,6 +4,8 @@
 #include "book.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <fstream>
 int Book::book_count = 0;
 Book::Book(): title {"None"}, author{"None"}, year {0}, pages {0} {book_count++;}
 Book::Book(std::string new_title): title {new_title}, author{"None"}, year {0}, pages {0} {book_count++;}
@@ -25,26 +27,10 @@ void Book::aboutbook()const {
 std::string Book::getTitle() const {
     return title;
 }
-bool Book::operator==(const Book& other) const {
-    return this->author == other.author && this->title == other.title;
-}
-std::ostream& operator<<(std::ostream& os, const Book& b) {
-    os << "\nTitle: " << b.title << "\n"
-        << "Author: " << b.author << "\n"
-        << "Year: " << b.year << "\n"
-        << "Pages: " << b.pages<<"\n"
-        <<"\n-----------------------";
-    return os;
-}
 
-std::istream& operator>>(std::istream& is, Book& b) {
-    std::cout << "Enter title: ";
-    std::getline(is, b.title);
-    std::cout << "Enter author: ";
-    std::getline(is, b.author);
-    std::cout << "Enter year: ";
-    is >> b.year;
-    std::cout << "Enter pages: ";
-    is >> b.pages;
-    return is;
+void Book::save(std::ofstream& file) const {
+    file << title << "|"
+         << author << "|"
+         << year << "|"
+         << pages << "|\n";
 }

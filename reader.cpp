@@ -72,11 +72,10 @@ std::string Reader::getRol() {
 //     return os;
 // }
 void Reader::save(std::ostream& os) const {
-    os<< "\nName: " << name << "\n"
-         << "Adress: " << adrees << "\n"
-         << "Phone number: " << number << "\n"
-         << "Amount of books: " << book_count<<"\n"
-         <<"\n-----------------------";
+    os<< name << "                    "<< adrees
+         << "                     "<< number
+         <<  "                     "<< book_count;
+         //<<"\n-----------------------";
 }
 
 Reader::~Reader() {

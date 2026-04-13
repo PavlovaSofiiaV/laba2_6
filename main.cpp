@@ -9,6 +9,7 @@
 #include <vector>
 #include <memory>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 void addReader(vector<unique_ptr<Person>>& people) {
@@ -28,38 +29,47 @@ void addReader(vector<unique_ptr<Person>>& people) {
     people.push_back(make_unique<Reader>(name, login,adress,number,book));
     cout << "Reader added!\n";
 }
-void saveReaders(const vector<unique_ptr<Person>>& people) {
-    ofstream file("readers.txt");
-    for (const auto& p : people) {
-        p->save(file);
-    }
-}
+// void saveReaders(const vector<unique_ptr<Person>>& people) {
+//     ofstream file("readers.txt");
+//     for (const auto& p : people) {
+//         p->save(file);
+//     }
+// }
+// vector<unique_ptr<Person>> loadReaders() {
+//     vector<unique_ptr<Person>> people;
+//     ifstream file("readers.txt");
+//
+//     string name, login, adress, number;
+//     int book;
+//
+//     while (getline(file, name,'               ')) {
+//         getline(file, login,'               ');
+//         getline(file, adress,'               ');
+//         getline(file, number,'               ');
+//         file >> book;
+//         file.ignore();
+//
+//         people.push_back(make_unique<Reader>(name, login, adress, number, book));
+//     }
+//
+//     return people;
+// }
 void addBook(vector<Book>& books) {
     string title, author;
     int year, pages;
-
     cin.ignore();
-
     cout << "Enter title: ";
     getline(cin, title);
-
     cout << "Enter author: ";
     getline(cin, author);
-
     cout << "Enter year: ";
     cin >> year;
-
     cout << "Enter pages: ";
     cin >> pages;
-
-    books.push_back(Book(title, author, year, pages));
-    cout << "Book added successfully!\n";
-}
-void saveBooksToFile(const vector<Book>& books) {
-    ofstream file("books.txt");
-    for (const auto& b : books) {
-        file << b << "\n";
-    }
+    Book b(title, author, year, pages);
+    books.push_back(b);
+    ofstream file("books.txt", ios::app);
+    b.save(file);
 }
 vector<Book> loadBooksFromFile() {
     vector<Book> books;
@@ -68,8 +78,8 @@ vector<Book> loadBooksFromFile() {
     string title, author;
     int year, pages;
 
-    while (getline(file, title, ';')) {
-        getline(file, author, ';');
+    while (getline(file, title, '|')) {
+        getline(file, author, '|');
         file >> year;
         file.ignore();
         file >> pages;
@@ -87,24 +97,14 @@ void clearBooksFile(vector<Book>& books) {
     books.clear();
     cout << "File cleared successfully!\n";
 }
-// void showBooks(const vector<Book>& books) {
-//     if (books.empty()) {
-//         cout << "No books available\n";
-//         return;
-//     }
-//
-//     for (const auto& b : books) {
-//         cout << b;
-//     }
-// }
+
 void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
     int adminChoice;
     do {
         cout << "\nAdmin Menu:\n";
         cout << "1. Add Book\n";
-        cout << "2. View Books\n";
-        cout << "3. Delete book\n";
-        cout << "4. Add reader \n";
+        cout << "2. Delete book\n";
+        cout << "3. Add reader \n";
         cout << "0. Logout\n";
         cout << "Enter your choice: ";
         cin >> adminChoice;
@@ -112,17 +112,13 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
         switch (adminChoice) {
             case 1:
                 addBook(books);
-                saveBooksToFile(books);
                 break;
             case 2:
-               // showBooks(books);
-                break;
-            case 3:
                 clearBooksFile(books);
                 break;
-            case 4:
-                addReader(people);
-                saveReaders(people);
+            case 3:
+                //addReader(people);
+                //saveReaders(people);
                 break;
             case 0:
                 cout << "Logging out...\n";
@@ -135,8 +131,7 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
 }
 
 int main() {
-
-    vector<unique_ptr<Person>> people;
+    vector<unique_ptr<Person>> people;//= loadReaders();
     people.push_back(make_unique<Librarian>("Sofiia","sofa","13",25000,25,250));
     people.push_back(make_unique<Reader>("Ruslana","ruslana.shysko"));
     people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56));
