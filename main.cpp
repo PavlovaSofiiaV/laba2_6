@@ -26,34 +26,32 @@ void addReader(vector<unique_ptr<Person>>& people) {
     getline(cin, number);
     cout << "Enter amount of books : ";
     cin >> book;
-    people.push_back(make_unique<Reader>(name, login,adress,number,book));
+
+    auto r = make_unique<Reader>(name, login, adress, number, book);
+    ofstream file("readers.txt", ios::app);
+    r->save(file);
+    people.push_back(move(r));
     cout << "Reader added!\n";
 }
-// void saveReaders(const vector<unique_ptr<Person>>& people) {
-//     ofstream file("readers.txt");
-//     for (const auto& p : people) {
-//         p->save(file);
-//     }
-// }
-// vector<unique_ptr<Person>> loadReaders() {
-//     vector<unique_ptr<Person>> people;
-//     ifstream file("readers.txt");
-//
-//     string name, login, adress, number;
-//     int book;
-//
-//     while (getline(file, name,'               ')) {
-//         getline(file, login,'               ');
-//         getline(file, adress,'               ');
-//         getline(file, number,'               ');
-//         file >> book;
-//         file.ignore();
-//
-//         people.push_back(make_unique<Reader>(name, login, adress, number, book));
-//     }
-//
-//     return people;
-// }
+vector<unique_ptr<Person>> loadReaders() {
+    vector<unique_ptr<Person>> people;
+    ifstream file("readers.txt");
+
+    string name, login, adress, number;
+    int book;
+
+    while (getline(file, name, '|')) {
+        getline(file, login, '|');
+        getline(file, adress, '|');
+        getline(file, number, '|');
+        file >> book;
+        file.ignore(1);
+
+        people.push_back(make_unique<Reader>(name, login, adress, number, book));
+    }
+
+    return people;
+}
 void addBook(vector<Book>& books) {
     string title, author;
     int year, pages;
@@ -117,8 +115,7 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
                 clearBooksFile(books);
                 break;
             case 3:
-                //addReader(people);
-                //saveReaders(people);
+                addReader(people);
                 break;
             case 0:
                 cout << "Logging out...\n";
@@ -131,7 +128,7 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
 }
 
 int main() {
-    vector<unique_ptr<Person>> people;//= loadReaders();
+    vector<unique_ptr<Person>> people = loadReaders();
     people.push_back(make_unique<Librarian>("Sofiia","sofa","13",25000,25,250));
     people.push_back(make_unique<Reader>("Ruslana","ruslana.shysko"));
     people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56));

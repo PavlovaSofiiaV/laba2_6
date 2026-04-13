@@ -11,7 +11,7 @@
 
 class Reader:public Person, public ILibraryUse {
 private:
-    std::string adrees;
+    std::string adress;
     std::string number ;
     int book_count;
     static int reader_count;
@@ -20,9 +20,9 @@ public:
 
     Reader();
     Reader(std::string name,std::string login);
-    Reader(std::string name,std::string login, std::string new_adrees);
-    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number);
-    Reader(std::string name,std::string login, std::string new_adrees,  std::string new_number, int new_book_count);
+    Reader(std::string name,std::string login, std::string new_adress);
+    Reader(std::string name,std::string login, std::string new_adress,  std::string new_number);
+    Reader(std::string name,std::string login, std::string new_adress,  std::string new_number, int new_book_count);
 
     Reader &operator=(const Reader &other);
 
