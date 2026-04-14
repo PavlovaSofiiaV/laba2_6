@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include"book.h"
+#include<fstream>
 int Reader::reader_count = 0;
 Reader::Reader() :Person("None"), book("None"), adress{"None"}, number {"None"}, book_count {0} {
     reader_count++;
@@ -55,10 +56,28 @@ bool Reader::checkIn( std::string& l,  std::string& p)  {
 }
 void Reader::showInfo() {
     std::cout << "\nAdress: " << adress << "\n"
-            << "Phone number: " << number << "\n"
-            << "Amount of books: " << book_count<<"\n"
-            << "Has now: "<<book.getTitle()
-            <<"\n------------------------\n";
+            << "Phone number: " << number << "\n";
+           // << "Amount of books: " << book_count<<"\n";
+    std::ifstream file("history.txt");
+    std::string line, lastBook = "";
+
+    while (getline(file, line)) {
+        if (line.find(login + "|") == 0) {
+
+            int pos1 = line.find('|');
+            int pos2 = line.find('|', pos1 + 1);
+
+            lastBook = line.substr(pos1 + 1, pos2 - pos1 - 1);
+        }
+    }
+
+    if (lastBook != "") {
+        std::cout << "Has now: " << lastBook << "\n";
+    } else {
+        std::cout << "Has now: none\n";
+    }
+
+    std::cout << "------------------------\n";
 }
 std::string Reader::getRol() {
     return "user";
@@ -69,14 +88,6 @@ std::string Reader::getLogin() {
 void Reader::countBook() {
     book_count++;
 }
-// std::ostream& operator<<(std::ostream& os, const Reader& r) {
-//     os << "\nName: " << r.name << "\n"
-//         << "Adress: " << r.adrees << "\n"
-//         << "Phone number: " << r.number << "\n"
-//         << "Amount of books: " << r.book_count<<"\n"
-//         <<"\n-----------------------";
-//     return os;
-// }
 void Reader::save(std::ostream& file) const {
     file << name << "|"
          << login << "|"

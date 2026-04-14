@@ -10,12 +10,14 @@
 #include <memory>
 #include <fstream>
 #include <iomanip>
+#include <limits>
+#include <stdexcept>
 
 using namespace std;
 void addReader(vector<unique_ptr<Person>>& people) {
     string name, login, adress, number;
     int book;
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');;
     cout << "Enter name: ";
     getline(cin, name);
     cout << "Enter login: ";
@@ -26,6 +28,11 @@ void addReader(vector<unique_ptr<Person>>& people) {
     getline(cin, number);
     cout << "Enter amount of books : ";
     cin >> book;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        throw runtime_error("Invalid year input!");
+    }
 
     auto r = make_unique<Reader>(name, login, adress, number, book);
     ofstream file("readers.txt", ios::app);
@@ -62,8 +69,18 @@ void addBook(vector<Book>& books) {
     getline(cin, author);
     cout << "Enter year: ";
     cin >> year;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        throw runtime_error("Invalid year input!");
+    }
     cout << "Enter pages: ";
     cin >> pages;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        throw runtime_error("Invalid year input!");
+    }
     Book b(title, author, year, pages);
     books.push_back(b);
     ofstream file("books.txt", ios::app);
@@ -97,13 +114,17 @@ void clearBooksFile(vector<Book>& books) {
 }
 void giveBook(vector<Book>& books) {
     string title, login;
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter reader login: ";
     getline(cin, login);
+    if (login.empty()) {
+        throw runtime_error("Login is empty!");
+    }
     cout << "Enter book title: ";
     getline(cin, title);
-
-    // 1. перевірка книги
+    if (title.empty()) {
+        throw runtime_error("Title is empty!");
+    }
     bool found = false;
 
     for (const auto& b : books) {
@@ -114,16 +135,12 @@ void giveBook(vector<Book>& books) {
     }
 
     if (!found) {
-        cout << "Book not found!\n";
-        return;
+        throw runtime_error("Book not found!");
     }
-
-    // 2. запис в історію
     ofstream file("history.txt", ios::app);
 
     if (!file.is_open()) {
-        cout << "Error opening file!\n";
-        return;
+        throw runtime_error("File not opened!");
     }
 
     file << login << "|" << title << "|\n";
@@ -154,7 +171,12 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
                 addReader(people);
                 break;
             case 4:
-                giveBook(books);
+                try {
+                    giveBook(books);
+                }
+                catch (const exception& e) {
+                    cout << "Error: " << e.what() << endl;
+                }
                 break;
             case 0:
                 cout << "Logging out...\n";
@@ -169,8 +191,6 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
 int main() {
     vector<unique_ptr<Person>> people = loadReaders();
     people.push_back(make_unique<Librarian>("Sofiia","sofa","13",25000,25,250));
-    people.push_back(make_unique<Reader>("Ruslana","ruslana.shysko"));
-    people.push_back(make_unique<Reader>("Olena Marko","olenka.marko123","Nebesnoyi Sotni 45a","0452365422",56));
 
     vector<Book> books = loadBooksFromFile();
     int choice;
@@ -224,7 +244,7 @@ int main() {
             }
             case 0: {
                 cout << "Exiting program...\n";
-                break;
+                return 0;
             }
             default: {
                 cout << "Invalid choice, please try again.\n";
@@ -233,4 +253,3 @@ int main() {
         }
     }
 }
-

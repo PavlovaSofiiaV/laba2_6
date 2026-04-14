@@ -39,7 +39,6 @@ public:
     std::string getLogin();
     void countBook();
     void save(std::ostream& os)const override;
-    //friend std::ostream& operator<<(std::ostream& out, const Reader& r);
 
 
    virtual ~Reader();
