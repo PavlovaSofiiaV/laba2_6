@@ -162,13 +162,23 @@ void adminMenu(vector<Book>& books,vector<unique_ptr<Person>>& people) {
 
         switch (adminChoice) {
             case 1:
-                addBook(books);
+                try {
+                    addBook(books);
+                }
+                catch (const exception& e) {
+                    cout << "Error: " << e.what() << endl;
+                }
                 break;
             case 2:
                 clearBooksFile(books);
                 break;
             case 3:
-                addReader(people);
+                try {
+                    addReader(people);
+                }
+                catch (const exception& e) {
+                    cout << "Error: " << e.what() << endl;
+                }
                 break;
             case 4:
                 try {
